@@ -7,14 +7,31 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <h1>DIA</h1>
+      <h3>Taking it one day at a time</h3>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <!-- Login -->
+        <div class="login-button">
+          <button type="button" id="login-nav" class="btn login-btn">LOGIN</button>
+        </div>
+          <form id="login">
+            <input name="credentials[email]" type="email" placeholder="EMAIL">
+            <input name="credentials[password]" type="password" placeholder="PASSWORD">
+            <input type="submit" class="btn btn-primary" id="login-submit" value="LOGIN">
+          </form>
+
+          <!-- Sign Up -->
+        <h5>Don't have an account?</h5>
+        <div class="signup-button">
+          <button type="button" id="signup-nav" class="btn signup-btn">SIGN UP</button>
+        </div>
+          <form id="sign-up">
+            <input name="credentials[email]" type="email" placeholder="EMAIL">
+            <input name="credentials[password]" type="password" placeholder="PASSWORD">
+            <input name="credentials[password_confirmation]" type="password" placeholder="CONFIRM PASSWORD">
+            <input type="submit" class="btn btn-primary" id="sign-up-submit" value="SIGN UP">
+          </form>
+
+
     </body>
 </html>
