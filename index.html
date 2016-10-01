@@ -1,37 +1,76 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>DIA</title>
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>DIA</h1>
-      <h3>Taking it one day at a time</h3>
-
-      <!-- Login -->
-        <div class="login-button">
-          <button type="button" id="login-nav" class="btn login-btn">LOGIN</button>
+      <section class="homepage">
+        <div class="intro-wrapper">
+          <h1>DIA</h1>
+          <h3>Taking it one day at a time</h3>
+            <div class="login-button">
+              <button type="button" id="login-nav" class="btn login-btn">LOGIN</button>
+            </div>
         </div>
-          <form id="login">
-            <input name="credentials[email]" type="email" placeholder="EMAIL">
-            <input name="credentials[password]" type="password" placeholder="PASSWORD">
-            <input type="submit" class="btn btn-primary" id="login-submit" value="LOGIN">
-          </form>
+            <!-- Login -->
+        <div class="login-wrapper">
+            <form id="login">
+              <input name="credentials[email]" type="email" placeholder="EMAIL">
+              <input name="credentials[password]" type="password" placeholder="PASSWORD">
+              <input type="submit" class="btn btn-primary" id="login-submit" value="LOGIN">
+            </form>
 
-          <!-- Sign Up -->
-        <h5>Don't have an account?</h5>
-        <div class="signup-button">
-          <button type="button" id="signup-nav" class="btn signup-btn">SIGN UP</button>
+            <!-- Sign Up -->
+          <h5>Don't have an account?</h5>
+          <div class="signup-button">
+            <button type="button" id="signup-nav" class="btn signup-btn">SIGN UP</button>
+          </div>
+            <form id="sign-up">
+              <input name="credentials[email]" type="email" placeholder="EMAIL">
+              <input name="credentials[password]" type="password" placeholder="PASSWORD">
+              <input name="credentials[password_confirmation]" type="password" placeholder="CONFIRM PASSWORD">
+              <input type="submit" class="btn btn-primary" id="sign-up-submit" value="SIGN UP">
+            </form>
         </div>
-          <form id="sign-up">
-            <input name="credentials[email]" type="email" placeholder="EMAIL">
-            <input name="credentials[password]" type="password" placeholder="PASSWORD">
-            <input name="credentials[password_confirmation]" type="password" placeholder="CONFIRM PASSWORD">
-            <input type="submit" class="btn btn-primary" id="sign-up-submit" value="SIGN UP">
-          </form>
+      </section>
 
+      <main class="main-interface">
+        <div class="navbar">
+          <ul class="top-nav">
+            <li>  <button type="button" id="user-nav" class="btn navbar-btn">USER</button></li>
+            <li>   <button type="button" id="today-nav" class="btn navbar-btn">TODAY</button></li>
+            <li>   <button type="button" id="week-nav" class="btn navbar-btn">THIS WEEK</button></li>
+            <li>  <button type="button" id="my-lists-nav" class="btn navbar-btn">MY LISTS</button></li>
+          </ul>
+          <ul class="bottom-nav">
+            <li><button type="button" id="change-pw-nav" class="btn navbar-btn">CHANGE PW</button></li>
+            <li><button type="button" id="sign-out-nav" class="btn navbar-btn">SIGN OUT</button></li>
+          </ul>
+      </div>
+      <div class="items">
+          <div class="list-toolbar">Today!!!!</div>
+          <div class="add-items">
+            <div class="add-plus-sign"> + </div>
+            <div class="add-priority-star"> *</div>
+          <div class="items-list">
+            <ol class="listed-items">
+              <li>Scheduled items</li>
+              </ol>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Change Password -->
+      <form id="change-pw">
+        <input name="passwords[old]" type="password" placeholder="OLD PASSWORD">
+        <input name="passwords[new]" type="password" placeholder="NEW PASSWORD">
+        <input type="submit" class="btn btn-primary" id="change-pw-submit" value="CHANGE IT">
+      </form>
 
     </body>
 </html>

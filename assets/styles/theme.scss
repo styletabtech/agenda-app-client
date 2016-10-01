@@ -1,0 +1,54 @@
+body {
+  background-color: $welcome-background;
+  text-align: center;
+}
+
+h1,
+h3,
+h5 {
+  border: 2px solid $form-color;
+  color: $header-font-color;
+}
+
+.btn {
+  background-color: transparent;
+  border-color: transparent;
+  color: $button-color;
+
+}
+
+.btn:hover {
+  background-color: transparent;
+  border-color: transparent;
+  color: $hover-color;
+}
+
+form {
+  color: $form-color;
+}
+
+ul {
+  display: list-item;
+  list-style: none;
+  text-align: left;
+}
+
+.top-nav {
+  border: 2px solid $form-color;
+}
+
+.bottom-nav {
+  border: 2px solid $header-font-color;
+}
+
+.items {
+  border: 2px solid $form-color;
+}
+
+.intro-wrapper {
+  border: 2px solid $header-font-color;
+}
+
+.login-wrapper {
+  border: 2px solid $header-font-color;
+}
