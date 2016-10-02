@@ -7,8 +7,10 @@
 // require('./example');
 
 const authEvents = require('./auth/events.js');
+const listEvents = require('./list/events.js');
 
 // On document ready
 $(() => {
   authEvents.addHandlers();
+  listEvents.addHandlers();
 });

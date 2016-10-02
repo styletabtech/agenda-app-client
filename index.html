@@ -7,7 +7,7 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <section class="homepage">
+      <section class="homepage hide">
         <div class="intro-wrapper">
           <h1>DIA</h1>
           <h3>Taking it one day at a time</h3>
@@ -49,10 +49,13 @@
 
       </section>
 
-      <main class="main-interface hide">
+      <main class="main-interface">
+        <h1>DIA</h1>
+        <h3>Taking it one day at a time</h3>
         <div class="navbar">
           <ul class="top-nav">
             <li>  <button type="button" id="user-nav" class="btn navbar-btn">USER</button></li>
+            <li>  <button type="button" id="new-list-button" class="btn navbar-btn">NEW LIST</button></li>
             <li>   <button type="button" id="today-nav" class="btn navbar-btn">TODAY</button></li>
             <li>   <button type="button" id="week-nav" class="btn navbar-btn">THIS WEEK</button></li>
             <li>  <button type="button" id="my-lists-nav" class="btn navbar-btn">MY LISTS</button></li>
@@ -62,9 +65,23 @@
             <li><button type="button" id="sign-out-nav" class="btn navbar-btn">SIGN OUT</button></li>
           </ul>
       </div>
-      <div class="items">
-          <div class="list-toolbar">Today!!!!</div>
-          <div class="add-items">
+      <div class="items hide">
+        <div class="my-items">
+            <h2>My To Do List</h2>
+            <input class="list-input" type="text" id="myInput" placeholder="Title...">
+            <span onclick="newElement()" class="add-btn">Add</span>
+          </div>
+
+          <ul class="my-list">
+            <li>Hit the gym</li>
+            <li class="checked">Pay bills</li>
+            <li>Meet George</li>
+            <li>Buy eggs</li>
+            <li>Read a book</li>
+            <li>Organize office</li>
+          </ul>
+          <!-- <div class="list-toolbar">Today!!!!</div> -->
+          <!-- <div class="add-items">
             <div class="new-item">New to do</div>
             <div class="add-plus-sign"> + </div>
             <div class="add-priority-star"> *</div>
@@ -73,10 +90,18 @@
               <li>Scheduled items</li>
               </ol>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </main>
+
+    <!-- Add New List -->
+
+    <form id="new-list-form" class="form-container hide">
+      <label>List Title</label>
+      <input name="lists[title]" type="text">
+      <input type="submit" class="btn btn-primary submit" id="new-list-submit" value="ADD LIST">
+    </form>
 
     <!-- Change Password -->
       <form id="change-pw" class="form-container hide">
