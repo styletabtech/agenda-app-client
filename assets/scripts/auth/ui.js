@@ -28,10 +28,10 @@ const loginSuccess = (data) => {
 
 // change password
 
-const changePasswordSuccess = (data) => {
-  console.log('change PW data is', data);
+const changePasswordSuccess = () => {
+//  console.log('change PW data is', data);
   console.log('change password success');
-  app.user = data.user;
+//  app.user = data.user;
 
 };
 
