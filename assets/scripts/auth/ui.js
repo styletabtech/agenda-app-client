@@ -2,11 +2,25 @@
 
 const app = require('../app');
 
+// for setup
+
+const proceedToLogin = () => {
+  $('.intro-wrapper').addClass('hide');
+  $('.login-wrapper').removeClass('hide');
+};
+
+const proceedToSignUp = () => {
+  $('.login-wrapper').addClass('hide');
+  $('.sign-up-wrapper').removeClass('hide');
+};
+
 // sign up
 
-const success = (data) => {
+const signUpSuccess = (data) => {
   console.log('sign up success');
   app.user = data.user;
+  $('.sign-up-wrapper').addClass('hide');
+  $('.main-interface').removeClass('hide');
 
 };
 
@@ -16,23 +30,25 @@ const loginSuccess = (data) => {
   console.log('login data is', data);
   console.log('login success');
   app.user = data.user;
-
-  // $('.board').hide();
-  // $('.win-msg-x').hide();
-  // $('.win-msg-o').hide();
-  // $('.draw-msg').hide();
-  // $('.total-games-msg').hide();
-  // $('.welcome-page').addClass('hide');
-  // $('.board-page').removeClass('hide');
+  $('.login-wrapper').addClass('hide');
+  $('.main-interface').removeClass('hide');
 };
 
 // change password
+
+const proceedToChangePw = () => {
+  $('#change-pw').removeClass('hide');
+};
 
 const changePasswordSuccess = () => {
 //  console.log('change PW data is', data);
   console.log('change password success');
 //  app.user = data.user;
-
+    $('#change-pw').addClass('hide');
+    $('.pw-success').removeClass('hide');
+    setTimeout(function() {
+     $('.pw-success').fadeOut();
+   }, 800);
 };
 
 // sign out
@@ -40,24 +56,27 @@ const changePasswordSuccess = () => {
 const signOutSuccess = () => {
   console.log('sign out success');
   app.user = null;
-  // $('#sign-up-nav').show();
-  // $('#sign-in-nav').show();
-  // $('.welcome-page').removeClass('hide');
-  // $('.board-page').addClass('hide');
-
+  $('.main-interface').addClass('hide');
+  $('.intro-wrapper').removeClass('hide');
 };
 
 // for all fails
 
-const failure = (error) => {
-  console.log(error);
+const failure = () => {
+  $('.pw-error').removeClass('hide');
+  setTimeout(function() {
+   $('.pw-error').fadeOut();
+ }, 800);
 };
 
 
 module.exports = {
+  proceedToLogin,
+  proceedToSignUp,
   loginSuccess,
   failure,
-  success,
+  signUpSuccess,
+  proceedToChangePw,
   changePasswordSuccess,
   signOutSuccess,
 };

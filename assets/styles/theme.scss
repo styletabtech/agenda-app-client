@@ -3,6 +3,10 @@ body {
   text-align: center;
 }
 
+.hide {
+  display: none;
+}
+
 h1,
 h3,
 h5 {
@@ -30,7 +34,6 @@ form {
 ul {
   display: list-item;
   list-style: none;
-  text-align: left;
 }
 
 .top-nav {
@@ -41,8 +44,17 @@ ul {
   border: 2px solid $header-font-color;
 }
 
+.navbar {
+  display: block;
+  float: left;
+  text-align: left;
+}
+
 .items {
   border: 2px solid $form-color;
+  //display: flex;
+  // float: right;
+  // overflow: hidden;
 }
 
 .intro-wrapper {
@@ -51,4 +63,8 @@ ul {
 
 .login-wrapper {
   border: 2px solid $header-font-color;
+}
+
+.sign-up-wrapper {
+  border: 2px solid $test-border;
 }

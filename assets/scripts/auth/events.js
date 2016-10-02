@@ -5,15 +5,31 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 
+// for setup
+
+const getStarted = function (event) {
+  event.preventDefault();
+    ui.proceedToLogin(event);
+};
+
+const getSignedUp = function () {
+  event.preventDefault();
+    ui.proceedToSignUp(event);
+};
+
 // sign up
 
 const onSignUp = function (event) {
   // console.log('ongSignUp is running');
   event.preventDefault();
-  let data = getFormFields(event.target);
-    api.signUp(data)
-      .done(ui.success)
+  let signUpdata = getFormFields(event.target);
+    api.signUp(signUpdata)
+      .done(function(data, textStatus, jqXHR) {
+        api.autoLogIn(data, textStatus, jqXHR, signUpdata)
+      .done(ui.signUpSuccess)
       .fail(ui.failure);
+    })
+    .fail(ui.failure);
 
 };
 
@@ -30,6 +46,11 @@ const onLogIn = function (event) {
 };
 
 // // change password
+
+const getChangePassword = function (event) {
+  event.preventDefault();
+    ui.proceedToChangePw(event);
+};
 
 const onChangePassword = function (event) {
   event.preventDefault();
@@ -54,55 +75,38 @@ const onSignOut =  function (event) {
 // events
 
 const addHandlers = () => {
-  //sign up
-// $('#sign-up-nav').on('click', function () {
-//   $('#signUpModal').show('show');
-// });
-$('#sign-up').on('submit', onSignUp);
 
-// $('#sign-up').on('submit', function(){
-//   $('#signUpModal').modal('hide');
+  //for setup
 
-// });
+  $('.login-button').on('click', getStarted);
+  $('.signup-button').on('click', getSignedUp);
+  $('#sign-up').on('submit', onSignUp);
 
 // sign in
-// $('#sign-in-nav').on('click', function () {
-//   $('#signInModal').modal('show');
-// });
+
  $('#login').on('submit', onLogIn);
-//
-// $('#sign-in').on('submit', function(){
-//   $('#signInModal').modal('hide');
-// });
-//
+
 // //change pw
-// $('#change-pw-nav').on('click', function () {
-//   $('#changePwModal').modal('show');
-// });
- $('#change-pw').on('submit', onChangePassword);
-//
-// $('#change-pw').on('submit', function(){
-//   $('#changePwModal').modal('hide');
-// });
-//
+  $('#change-pw-nav').on('click', getChangePassword);
+  $('#change-pw').on('submit', onChangePassword);
+
 // // sign out
 $('#sign-out-nav').on('click', onSignOut);
-//
-// $(document).on('ready', function(){
-//   // $('.board-page').hide();
-// //  $('.board').hide();
-//   // $('.welcome-page').show();
-//   $('#sign-up-nav').show();
-//   $('#sign-in-nav').show();
 
-// });
-//
+$(document).on('ready', function(){
+  $('.intro-wrapper').show();
+
+});
+
 };
 
 module.exports = {
   addHandlers,
+  getStarted,
+  getSignedUp,
   onSignUp,
   onLogIn,
+  getChangePassword,
   onChangePassword,
   onSignOut
 };

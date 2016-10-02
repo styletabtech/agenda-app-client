@@ -16,7 +16,8 @@
             </div>
         </div>
             <!-- Login -->
-        <div class="login-wrapper">
+        <div class="login-wrapper hide">
+          <h1>Login</h1>
             <form id="login">
               <input name="credentials[email]" type="email" placeholder="EMAIL">
               <input name="credentials[password]" type="password" placeholder="PASSWORD">
@@ -26,8 +27,11 @@
             <!-- Sign Up -->
           <h5>Don't have an account?</h5>
           <div class="signup-button">
-            <button type="button" id="signup-nav" class="btn signup-btn">SIGN UP</button>
+            <button type="button" id="signup-nav" class="btn signup-btn">SIGN UP MEOW</button>
           </div>
+        </div>
+        <div class="sign-up-wrapper hide">
+          <h1>Create an account</h1>
             <form id="sign-up">
               <input name="credentials[email]" type="email" placeholder="EMAIL">
               <input name="credentials[password]" type="password" placeholder="PASSWORD">
@@ -35,9 +39,10 @@
               <input type="submit" class="btn btn-primary" id="sign-up-submit" value="SUBMIT">
             </form>
         </div>
+
       </section>
 
-      <main class="main-interface">
+      <main class="main-interface hide">
         <div class="navbar">
           <ul class="top-nav">
             <li>  <button type="button" id="user-nav" class="btn navbar-btn">USER</button></li>
@@ -66,11 +71,13 @@
     </main>
 
     <!-- Change Password -->
-      <form id="change-pw">
+      <form id="change-pw" class="hide">
         <input name="passwords[old]" type="password" placeholder="OLD PASSWORD">
         <input name="passwords[new]" type="password" placeholder="NEW PASSWORD">
         <input type="submit" class="btn btn-primary" id="change-pw-submit" value="CHANGE IT">
       </form>
+      <div class="pw-success hide">Changed!</div>
+      <div class="pw-error hide">Try Again!</div>
 
     </body>
 </html>
