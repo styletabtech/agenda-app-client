@@ -2,11 +2,24 @@
 
 const app = require('../app');
 
-// get all lists (get)
-// create new list (post)
+
+
 // edit a list title (patch)
 // delete a lsit (delete)
 
+
+// get all lists
+
+const getAllLists = () => {
+  return $.ajax({
+    url: app.host + '/lists',
+    method: "GET",
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+  }});
+};
+
+// create new list
 
 const createNewList = (data) => {
   console.log('new list data is', data);
@@ -14,7 +27,7 @@ const createNewList = (data) => {
     url: app.host + '/lists',
     method: 'POST',
     headers: {
-          Authorization: 'Token token=' + app.user.token,
+      Authorization: 'Token token=' + app.user.token,
         },
     data: {
       list: {
@@ -103,5 +116,6 @@ const createNewList = (data) => {
 // };
 
 module.exports = {
-createNewList
+  getAllLists,
+  createNewList
 };

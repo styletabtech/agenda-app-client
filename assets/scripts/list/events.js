@@ -5,6 +5,15 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const ui = require('./ui');
 
+// for getting all lists
+
+const getMyLists = function () {
+  event.preventDefault();
+    api.getAllLists()
+      .done(ui.myListsSuccess)
+      .fail(ui.failure);
+};
+
 // for creating a new list
 
 const getNewList = function (event) {
@@ -25,6 +34,9 @@ const onNewList = function (event) {
 
 const addHandlers = () => {
 
+  // for getting all lists
+  $('#my-lists-button').on('click', getMyLists);
+
   //for creating a new list
 
   $('#new-list-button').on('click', getNewList);
@@ -34,6 +46,7 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
+  getMyLists,
   getNewList,
   onNewList
 

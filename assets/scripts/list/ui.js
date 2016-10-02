@@ -3,6 +3,13 @@
 const app = require('../app');
 
 
+// for getting all lists
+
+const myListsSuccess = (data) => {
+  console.log('list success data is', data);
+};
+
+// for creating a list
 
 const proceedToCreateList = () => {
   $('#new-list-form').removeClass('hide');
@@ -31,6 +38,7 @@ const failure = () => {
 
 module.exports = {
   proceedToCreateList,
+  myListsSuccess,
   newListSuccess,
   failure
 };
