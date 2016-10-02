@@ -13,6 +13,7 @@ const success = (data) => {
 // login
 
 const loginSuccess = (data) => {
+  console.log('login data is', data);
   console.log('login success');
   app.user = data.user;
 
@@ -28,7 +29,8 @@ const loginSuccess = (data) => {
 // change password
 
 const changePasswordSuccess = (data) => {
-  console.log(data.user);
+  console.log('change PW data is', data);
+  console.log('change password success');
   app.user = data.user;
 
 };
@@ -36,11 +38,12 @@ const changePasswordSuccess = (data) => {
 // sign out
 
 const signOutSuccess = () => {
+  console.log('sign out success');
   app.user = null;
-  $('#sign-up-nav').show();
-  $('#sign-in-nav').show();
-  $('.welcome-page').removeClass('hide');
-  $('.board-page').addClass('hide');
+  // $('#sign-up-nav').show();
+  // $('#sign-in-nav').show();
+  // $('.welcome-page').removeClass('hide');
+  // $('.board-page').addClass('hide');
 
 };
 

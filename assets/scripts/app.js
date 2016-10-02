@@ -1,4 +1,4 @@
-//change to https://agenda-api-3000.herokuapp.com/ after testng is complete
+//change to https://agenda-api-3000.herokuapp.com after testng is complete
 
 'use strict';
 
