@@ -28,7 +28,33 @@ h5 {
 }
 
 form {
+  background-color: $form-background;
+  border: 3px solid $form-border;
   color: $form-color;
+  margin: auto;
+  margin-top: 10px;
+  padding: 20px 15px;
+  text-align: center;
+  width: 250px;
+}
+
+.form-container {
+  padding: 10px 5px;
+}
+
+label {
+  padding-top: 10px;
+}
+
+input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1.5px solid $form-border;
+  text-align: center;
+}
+
+.submit {
+  padding-top: 20px;
 }
 
 ul {
@@ -45,16 +71,28 @@ ul {
 }
 
 .navbar {
+  box-sizing: border-box;
   display: block;
   float: left;
-  text-align: left;
+  // text-align: left;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .items {
   border: 2px solid $form-color;
-  //display: flex;
-  // float: right;
-  // overflow: hidden;
+  float: right;
+  height: 90%;
+  margin-right: 5%;
+  width: 70%;
+}
+
+.list-toolbar {
+  background-color: $form-background;
+}
+
+.new-item {
+  background-color: $form-color;
 }
 
 .intro-wrapper {

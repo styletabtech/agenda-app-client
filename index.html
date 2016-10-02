@@ -7,7 +7,7 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <section class="homepage">
+      <section class="homepage hide">
         <div class="intro-wrapper">
           <h1>DIA</h1>
           <h3>Taking it one day at a time</h3>
@@ -19,9 +19,13 @@
         <div class="login-wrapper hide">
           <h1>Login</h1>
             <form id="login">
-              <input name="credentials[email]" type="email" placeholder="EMAIL">
-              <input name="credentials[password]" type="password" placeholder="PASSWORD">
-              <input type="submit" class="btn btn-primary" id="login-submit" value="LOGIN">
+              <div class="form-container">
+              <label>Your Email</label>
+              <input name="credentials[email]" type="email">
+              <label>Password</label>
+              <input name="credentials[password]" type="password">
+              <input type="submit" class="btn btn-primary submit" id="login-submit" value="LOGIN">
+            </div>
             </form>
 
             <!-- Sign Up -->
@@ -33,16 +37,19 @@
         <div class="sign-up-wrapper hide">
           <h1>Create an account</h1>
             <form id="sign-up">
-              <input name="credentials[email]" type="email" placeholder="EMAIL">
-              <input name="credentials[password]" type="password" placeholder="PASSWORD">
-              <input name="credentials[password_confirmation]" type="password" placeholder="CONFIRM PASSWORD">
-              <input type="submit" class="btn btn-primary" id="sign-up-submit" value="SUBMIT">
+              <label>Your Email</label>
+              <input name="credentials[email]" type="email">
+              <label>Password</label>
+              <input name="credentials[password]" type="password">
+              <label>Confirm Password</label>
+              <input name="credentials[password_confirmation]" type="password">
+              <input type="submit" class="btn btn-primary submit" id="sign-up-submit" value="SUBMIT">
             </form>
         </div>
 
       </section>
 
-      <main class="main-interface hide">
+      <main class="main-interface ">
         <div class="navbar">
           <ul class="top-nav">
             <li>  <button type="button" id="user-nav" class="btn navbar-btn">USER</button></li>
@@ -58,6 +65,7 @@
       <div class="items">
           <div class="list-toolbar">Today!!!!</div>
           <div class="add-items">
+            <div class="new-item">New to do</div>
             <div class="add-plus-sign"> + </div>
             <div class="add-priority-star"> *</div>
           <div class="items-list">
@@ -72,9 +80,11 @@
 
     <!-- Change Password -->
       <form id="change-pw" class="hide">
-        <input name="passwords[old]" type="password" placeholder="OLD PASSWORD">
-        <input name="passwords[new]" type="password" placeholder="NEW PASSWORD">
-        <input type="submit" class="btn btn-primary" id="change-pw-submit" value="CHANGE IT">
+        <label>Old Password</label>
+        <input name="passwords[old]" type="password">
+        <label>New Password</label>
+        <input name="passwords[new]" type="password">
+        <input type="submit" class="btn btn-primary submit" id="change-pw-submit" value="CHANGE IT">
       </form>
       <div class="pw-success hide">Changed!</div>
       <div class="pw-error hide">Try Again!</div>
