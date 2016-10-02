@@ -7,7 +7,7 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <section class="homepage hide">
+      <section class="homepage">
         <div class="intro-wrapper">
           <h1>DIA</h1>
           <h3>Taking it one day at a time</h3>
@@ -49,7 +49,7 @@
 
       </section>
 
-      <main class="main-interface ">
+      <main class="main-interface hide">
         <div class="navbar">
           <ul class="top-nav">
             <li>  <button type="button" id="user-nav" class="btn navbar-btn">USER</button></li>
@@ -79,15 +79,15 @@
     </main>
 
     <!-- Change Password -->
-      <form id="change-pw" class="hide">
+      <form id="change-pw" class="form-container hide">
         <label>Old Password</label>
         <input name="passwords[old]" type="password">
         <label>New Password</label>
         <input name="passwords[new]" type="password">
         <input type="submit" class="btn btn-primary submit" id="change-pw-submit" value="CHANGE IT">
       </form>
-      <div class="pw-success hide">Changed!</div>
-      <div class="pw-error hide">Try Again!</div>
+      <div class="pw-success hide form-msg">Changed!</div>
+      <div class="pw-error hide form-msg">Try Again!</div>
 
     </body>
 </html>

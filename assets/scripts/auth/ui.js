@@ -38,12 +38,15 @@ const loginSuccess = (data) => {
 
 const proceedToChangePw = () => {
   $('#change-pw').removeClass('hide');
+  $('.items').addClass('hide');
+
 };
 
 const changePasswordSuccess = () => {
 //  console.log('change PW data is', data);
   console.log('change password success');
 //  app.user = data.user;
+    $('.items').removeClass('hide');
     $('#change-pw').addClass('hide');
     $('.pw-success').removeClass('hide');
     setTimeout(function() {
