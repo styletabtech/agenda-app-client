@@ -1,12 +1,15 @@
 'use strict';
 
 const app = require('../app');
-
+const showAllListsTemplate = require('../templates/get-all-lists.handlebars');
 
 // for getting all lists
 
 const myListsSuccess = (data) => {
   console.log('list success data is', data);
+  let lists = data;
+  // console.log(data);
+  $(".content").html(showAllListsTemplate(lists));
 };
 
 // for creating a list
