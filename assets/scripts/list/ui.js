@@ -1,9 +1,11 @@
 'use strict';
 
-//const app = require('../app');
+// const app = require('../app');
 
 const showAllListsTemplate = require('../templates/get-all-lists.handlebars');
 const showNewListTemplate = require ('../templates/get-new-list.handlebars');
+//const deleteListTemplate = require ('../templates/delete-list.handlebars');
+
 
 // for getting all lists
 
@@ -30,6 +32,16 @@ const newListSuccess = (data) => {
   $(".content").html(showNewListTemplate(newList));
 };
 
+// for deleting a list
+
+const deleteListSuccess = () => {
+  console.log('successful delete');
+//  $('.delete-list').html('');
+  // app.user.lists[list].id = null;
+  //let deletedList = data.list;
+//  $('.content').html('');
+ };
+
 const failure = () => {
   $('.pw-error').removeClass('hide');
   setTimeout(function() {
@@ -37,16 +49,17 @@ const failure = () => {
  }, 800);
 };
 
-
-// const proceedToLogin = () => {
-//   $('.intro-wrapper').addClass('hide');
-//   $('.login-wrapper').removeClass('hide');
-// };
-
+const clearMyLists = () => {
+  event.preventDefault();
+  console.log('clearMyLists is running');
+  $(".content").html("");
+};
 
 module.exports = {
   proceedToCreateList,
   myListsSuccess,
   newListSuccess,
-  failure
+  deleteListSuccess,
+  failure,
+  clearMyLists
 };

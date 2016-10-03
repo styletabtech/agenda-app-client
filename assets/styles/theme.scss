@@ -100,11 +100,18 @@ li {
 
 //Style the close button
 
-.close {
-  padding: 12px 16px;
+.edit-list {
+//  padding: 12px 16px;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 9;
+//  top: 0;
+}
+
+.delete-list {
+//  padding: 12px 16px;
+  position: absolute;
+  right: 5;
+//  top: 0;
 }
 
 // .close:hover {

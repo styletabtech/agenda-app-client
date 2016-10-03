@@ -29,6 +29,27 @@ const onNewList = function (event) {
       .fail(ui.failure);
 };
 
+// for updating a list title
+
+// const onUpdateList = function (event) {
+//   event.preventDefault();
+//   let updateListID = $('.edit-list').attr('id');
+//     api.updateListTitle(updateListID)
+//       .done(ui.updateListSuccess)
+//       .fail(ui.failure);
+// };
+
+// for deleting a given list
+
+const onDeleteList = function (event) {
+  event.preventDefault();
+  let listID = $('.delete-list').attr('id');
+  console.log('listID is', listID);
+  api.destroyList(listID)
+    .done(ui.clearMyLists)
+      .done(getMyLists)
+      .fail(ui.failure);
+};
 
 // events
 
@@ -42,12 +63,20 @@ const addHandlers = () => {
   $('#new-list-button').on('click', getNewList);
   $('#new-list-form').on('submit', onNewList);
 
+  // for updating a list title
+//  $('.content').on('click', onUpdateList);
+
+  // deleting a list
+  $('.content').on('click', onDeleteList);
+
 };
 
 module.exports = {
   addHandlers,
   getMyLists,
   getNewList,
-  onNewList
+  onNewList,
+  //onUpdateList,
+  onDeleteList
 
 };

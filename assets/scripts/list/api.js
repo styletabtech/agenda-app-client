@@ -2,7 +2,7 @@
 
 const app = require('../app');
 
-// delete a lsit (delete)
+
 
 // get all lists
 
@@ -34,6 +34,29 @@ const createNewList = (data) => {
 };
 
 // edit a list title (patch)
+
+// const updateListTitle = (updateListID) => {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: app.host + '/lists/'+ updateListID,
+//     headers: {
+//       Authorization: 'Token token=' + app.user.token,
+//     },
+//
+//   });
+// };
+
+// delete a list
+
+const destroyList = (listID) => {
+return $.ajax ({
+    url: app.host + '/lists/' + listID,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
 
 
 
@@ -118,5 +141,7 @@ const createNewList = (data) => {
 
 module.exports = {
   getAllLists,
-  createNewList
+  createNewList,
+//  updateListTitle,
+  destroyList
 };
