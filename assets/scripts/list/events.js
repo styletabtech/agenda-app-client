@@ -43,7 +43,7 @@ const onNewList = function (event) {
 
 const onDeleteList = function (event) {
   event.preventDefault();
-  let listID = $('.delete-list').attr('id');
+  let listID = $(event.target).attr('id');
   console.log('listID is', listID);
   api.destroyList(listID)
     .done(ui.clearMyLists)
