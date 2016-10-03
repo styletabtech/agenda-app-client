@@ -2,11 +2,7 @@
 
 const app = require('../app');
 
-
-
-// edit a list title (patch)
 // delete a lsit (delete)
-
 
 // get all lists
 
@@ -36,6 +32,11 @@ const createNewList = (data) => {
     }
   });
 };
+
+// edit a list title (patch)
+
+
+
 //
 // const autoLogIn = function (data, textStatus, jqXHR, signUpData) {
 //   return $.ajax({

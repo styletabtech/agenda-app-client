@@ -1,4 +1,31 @@
 <h1>My Lists:</h1>
+
 {{#each lists}}
-  {{> partial}}
+
+<h2> {{title}}</h2>
+<table>
+  <thead>
+    <th>DATE</th>
+    <th>TASK</th>
+    <th>PRIORITY</th>
+    <th>DUE</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        {{this.date}}
+      </td>
+    <td>
+        {{this.task}}
+    </td>
+    <td>
+      {{this.priority}}
+    </td>
+    <td>
+      {{this.due}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+
 {{/each}}

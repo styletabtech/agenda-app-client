@@ -12,6 +12,7 @@ body {
 }
 
 h1,
+h2,
 h3,
 h5 {
   border: 2px solid $form-color;
@@ -38,8 +39,10 @@ form {
   margin: auto;
   margin-top: 10px;
   padding: 20px 15px;
+  position: relative;
   text-align: center;
   width: 250px;
+  z-index: 100;
 }
 
 .form-container {
@@ -78,22 +81,22 @@ li {
   transition: .2s;
 }
 
-ul li.checked {
-  text-decoration: line-through;
-}
-
-// Add a "checked" mark when clicked on
-ul li.checked::before {
-  border-style: solid;
-  border-width: 0 2px 2px 0;
-  content: '';
-  height: 10px;
-  left: 16px;
-  position: absolute;
-  top: 10px;
-  transform: rotate(45deg);
-  width: 7px;
-}
+// ul li.checked {
+//   text-decoration: line-through;
+// }
+//
+// // Add a "checked" mark when clicked on
+// ul li.checked::before {
+//   border-style: solid;
+//   border-width: 0 2px 2px 0;
+//   content: '';
+//   height: 10px;
+//   left: 16px;
+//   position: absolute;
+//   top: 10px;
+//   transform: rotate(45deg);
+// //   width: 7px;
+// }
 
 //Style the close button
 
@@ -111,7 +114,6 @@ ul li.checked::before {
 
 //  Style the header
 .my-items {
-  background-color: $form-color;
   padding: 30px 40px;
   text-align: center;
 }
@@ -169,15 +171,42 @@ ul li.checked::before {
   border: 2px solid $header-font-color;
 }
 
-.items {
+.content-wrapper {
   border: 2px solid $header-font-color;
-//  display: table;
   float: right;
-  height: 90%;
   margin-left: 2.5%;
   margin-right: 2.5%;
   width: 80%;
 }
+
+table {
+  border-collapse: collapse;
+  display: table;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+}
+
+
+thead {
+  display: table-header-group;
+}
+
+th {
+  border: 2px solid $form-color;
+  text-align: center;
+  vertical-align: middle;
+}
+
+// .items {
+//   border: 2px solid $header-font-color;
+// //  display: table;
+//   float: right;
+//   height: 90%;
+//   margin-left: 2.5%;
+//   margin-right: 2.5%;
+//   width: 80%;
+// }
 
 .add-items {
   display: table-cell;
