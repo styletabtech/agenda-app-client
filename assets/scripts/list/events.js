@@ -85,7 +85,7 @@ const addHandlers = () => {
  $('#update-list-form').on('submit', onUpdateList);
 
   // deleting a list
-  $('.delete-content').on('click', '.delete-list', onDeleteList);
+  $('.content').on('click', '.delete-list', onDeleteList);
 
 };
 
