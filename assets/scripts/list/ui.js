@@ -32,6 +32,13 @@ const newListSuccess = (data) => {
   $(".content").html(showNewListTemplate(newList));
 };
 
+
+// for updating a list title
+const proceedToUpdateList = () => {
+  $('#update-list-form').removeClass('hide');
+};
+
+
 // for deleting a list
 
 const deleteListSuccess = () => {
@@ -61,5 +68,6 @@ module.exports = {
   newListSuccess,
   deleteListSuccess,
   failure,
+  proceedToUpdateList,
   clearMyLists
 };

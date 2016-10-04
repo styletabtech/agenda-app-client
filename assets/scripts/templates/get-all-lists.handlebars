@@ -2,8 +2,9 @@
 
 {{#each lists}}
 
+<div class="list-name-wrapper" data-id={{id}}>
 <h2> {{title}}
-  
+  <button id={{this.id}} class="btn edit-list">EDIT</button>
 <button id={{this.id}} class="btn delete-list">DELETE</button> </h2>
 <table>
   <thead>
@@ -29,5 +30,5 @@
   </tr>
   </tbody>
 </table>
-
+</div>
 {{/each}}

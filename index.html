@@ -66,7 +66,15 @@
           </ul>
       </div>
     <div class='content-wrapper'>
-      <div class="content">
+      <div id='edit-content' class='content'>
+      <div class='edit-content'></div>
+      <div class='delete-content'></div>
+
+    </div>
+      <!-- <div id="edit" class="content">
+        </div>
+      <div id="delete" class="content">
+      </div> -->
         <!-- <table>
           <thead>
             <th>DATE</th>
@@ -92,7 +100,7 @@
           </ul> -->
       <!-- </div> -->
       </div>
-    </div>
+
           <!-- <div class="list-toolbar">Today!!!!</div> -->
           <!-- <div class="add-items">
             <div class="new-item">New to do</div>
@@ -105,27 +113,34 @@
           </div>
         </div> -->
 
+        <!-- Add New List -->
+
+        <form id="new-list-form" class="form-container hide">
+          <label>List Title</label>
+          <input name="list[title]" type="text" id='list-id'>
+          <input type="submit" class="btn btn-primary submit" id="new-list-submit" value="ADD LIST">
+        </form>
+
+        <!-- Change Password -->
+          <form id="change-pw" class="form-container hide">
+            <label>Old Password</label>
+            <input name="passwords[old]" type="password">
+            <label>New Password</label>
+            <input name="passwords[new]" type="password">
+            <input type="submit" class="btn btn-primary submit" id="change-pw-submit" value="CHANGE IT">
+          </form>
+          <div class="pw-success hide form-msg">Changed!</div>
+          <div class="pw-error hide form-msg">Try Again!</div>
+
+        <!-- Update a list title -->
+        <form id="update-list-form" class="form-container hide">
+          <label>List Title</label>
+          <input name="list[title]" type="text">
+          <input type="submit" class="btn btn-primary submit" id="update-list-submit" value="UPDATE LIST">
+        </form>
 
     </main>
 
-    <!-- Add New List -->
-
-    <form id="new-list-form" class="form-container hide">
-      <label>List Title</label>
-      <input name="list[title]" type="text" id='list-id'>
-      <input type="submit" class="btn btn-primary submit" id="new-list-submit" value="ADD LIST">
-    </form>
-
-    <!-- Change Password -->
-      <form id="change-pw" class="form-container hide">
-        <label>Old Password</label>
-        <input name="passwords[old]" type="password">
-        <label>New Password</label>
-        <input name="passwords[new]" type="password">
-        <input type="submit" class="btn btn-primary submit" id="change-pw-submit" value="CHANGE IT">
-      </form>
-      <div class="pw-success hide form-msg">Changed!</div>
-      <div class="pw-error hide form-msg">Try Again!</div>
 
     </body>
 </html>

@@ -31,13 +31,22 @@ const onNewList = function (event) {
 
 // for updating a list title
 
-// const onUpdateList = function (event) {
-//   event.preventDefault();
-//   let updateListID = $('.edit-list').attr('id');
-//     api.updateListTitle(updateListID)
-//       .done(ui.updateListSuccess)
-//       .fail(ui.failure);
-// };
+const getUpdateList = function (event) {
+  console.log('getupdatelist is running');
+  event.preventDefault();
+  ui.proceedToUpdateList(event);
+};
+
+const onUpdateList = function (event) {
+//  console.log('onUpdateList is running');
+  event.preventDefault();
+  let data = getFormFields(event.target);
+//  let updateListID = $(event.target).attr('id');
+  console.log('updateList data', data);
+    api.updateListTitle(data)
+      .done(ui.updateListSuccess)
+      .fail(ui.failure);
+};
 
 // for deleting a given list
 
@@ -64,10 +73,12 @@ const addHandlers = () => {
   $('#new-list-form').on('submit', onNewList);
 
   // for updating a list title
-//  $('.content').on('click', onUpdateList);
+
+  $('#edit-content').on('click', '.edit-list', getUpdateList);
+ $('#update-list-form').on('submit', onUpdateList);
 
   // deleting a list
-  $('.content').on('click', onDeleteList);
+  $('.delete-content').on('click', '.delete-list', onDeleteList);
 
 };
 
@@ -76,7 +87,8 @@ module.exports = {
   getMyLists,
   getNewList,
   onNewList,
-  //onUpdateList,
+  getUpdateList,
+  onUpdateList,
   onDeleteList
 
 };
