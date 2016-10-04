@@ -14,6 +14,15 @@ const getMyLists = function () {
       .fail(ui.failure);
 };
 
+// for showing a single list
+
+const getAList = function (data) {
+  event.preventDefault();
+    api.getOneList(data)
+      .done(ui.showUpdatedList)
+      .fail(ui.failure);
+};
+
 // for creating a new list
 
 const getNewList = function (event) {
@@ -38,14 +47,12 @@ const getUpdateList = function (event) {
 };
 
 const onUpdateList = function (event) {
-//  console.log('onUpdateList is running');
   event.preventDefault();
   let data = getFormFields(event.target);
-//  let updateListID = $(event.target).attr('id');
   console.log('updateList data', data);
     api.updateListTitle(data)
-      .done(ui.updateListSuccess)
-      .fail(ui.failure);
+        .done(getAList(data))
+        .fail(ui.failure);
 };
 
 // for deleting a given list
@@ -85,6 +92,7 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   getMyLists,
+  getAList,
   getNewList,
   onNewList,
   getUpdateList,

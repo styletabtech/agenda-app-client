@@ -15,6 +15,18 @@ const getAllLists = () => {
   }});
 };
 
+// show a list
+
+const getOneList = () => {
+return $.ajax ({
+    url: app.host + '/lists/' + $('.list-name-wrapper').data('id'),
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
 // create new list
 
 const createNewList = (data) => {
@@ -68,6 +80,7 @@ return $.ajax ({
 
 module.exports = {
   getAllLists,
+  getOneList,
   createNewList,
   updateListTitle,
   destroyList
