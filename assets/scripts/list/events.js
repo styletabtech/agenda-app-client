@@ -26,7 +26,7 @@ const getAList = function (data) {
 // for creating a new list
 
 const getNewList = function (event) {
-  console.log('getnewlist is running');
+//  console.log('getnewlist is running');
   event.preventDefault();
   ui.proceedToCreateList(event);
 };
@@ -57,7 +57,7 @@ const onNewList = function (event) {
 // for updating a list title
 
 const getUpdateList = function (event) {
-  console.log('getupdatelist is running');
+//  console.log('getupdatelist is running');
   event.preventDefault();
   ui.proceedToUpdateList(event);
 };
@@ -113,14 +113,15 @@ const addHandlers = () => {
   // $('#new-list-button').on('click', getNewList);
   // $('#new-list-form').on('submit', onNewList);
 
-  $('#new-list-button').on('click', function () {
-    $('#newListModal').modal('show');
-  });
-  $('#new-list-form').on('submit', onNewList);
-  $('#new-list-form').on('submit', function() {
+$('#new-list-button').on('click', function () {
+  $('#newListModal').modal('show');
+});
+$('#new-list-form').on('submit', onNewList);
+
+$('#new-list-form').on('submit', function(){
   $('#newListModal').modal('hide');
 
-});
+  });
 
 
   //for creating a new list (in my lists view)
@@ -128,21 +129,22 @@ const addHandlers = () => {
   // $('#new-list-form').on('submit', onNewListAllView);
 
 
-  // for updating a list title (single list view)
+  // for editing a list title (single list view)
 
  //  $('#edit-content').on('click', '.edit-list', getUpdateList);
  // $('#update-list-form').on('submit', onUpdateList);
 
- // for updating a list title (My Lists list view)
+ // for editing a list title (My Lists list view)
 
  $('#edit-content').on('click', '.edit-list-all-view', function () {
    $('#editTitleModal').modal('show');
  });
-$('#update-list-form').on('submit', onUpdateListAllView);
-$('#update-list-form').on('submit', function() {
-$('#editTitleModal').modal('hide');
- });
+ $('#update-list-form').on('submit', onUpdateListAllView);
 
+ $('#update-list-form').on('submit', function(){
+   $('#editTitleModal').modal('hide');
+
+   });
 
 //  $('#edit-content').on('click', '.edit-list-all-view', getUpdateList);
 // $('#update-list-form').on('submit', onUpdateListAllView);

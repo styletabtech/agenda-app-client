@@ -17,6 +17,7 @@ const proceedToSignUp = () => {
 // sign up
 
 const signUpSuccess = (data) => {
+
   app.user = data.user;
   $('.sign-up-wrapper').addClass('hide');
   $('.main-interface').removeClass('hide');
@@ -26,7 +27,7 @@ const signUpSuccess = (data) => {
 // login
 
 const loginSuccess = (data) => {
-
+  // console.log('user is', data);
   app.user = data.user;
   $('.login-wrapper').addClass('hide');
   $('.main-interface').removeClass('hide');
