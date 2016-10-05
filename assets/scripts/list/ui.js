@@ -29,7 +29,7 @@ const newListSuccess = (data) => {
   let newList = data.list;
   console.log('newlist data is', newList);
   $('#new-list-form').addClass('hide');
-  $(".content").html(showNewListTemplate(newList));
+//  $(".content").append(showAllListsTemplate(newList));
 };
 
 

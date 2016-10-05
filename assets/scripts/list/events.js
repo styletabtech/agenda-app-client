@@ -26,6 +26,7 @@ const getAList = function (data) {
 // for creating a new list
 
 const getNewList = function (event) {
+  console.log('getnewlist is running');
   event.preventDefault();
   ui.proceedToCreateList(event);
 };
@@ -35,8 +36,23 @@ const onNewList = function (event) {
   let data = getFormFields(event.target);
     api.createNewList(data)
       .done(ui.newListSuccess)
+      .done(ui.clearMyLists)
+        .done(getMyLists)
       .fail(ui.failure);
 };
+
+// for creating a new list (in my list view)
+
+// const onNewListAllView = function (event) {
+//   event.preventDefault();
+//   let data = getFormFields(event.target);
+//     api.createNewList(data)
+//       .done(ui.newListSuccess)
+//       .done(ui.clearMyLists)
+//         .done(getMyLists)
+//       .fail(ui.failure);
+// };
+
 
 // for updating a list title
 
@@ -87,10 +103,15 @@ const addHandlers = () => {
   // for getting all lists
   $('#my-lists-button').on('click', getMyLists);
 
-  //for creating a new list
+  //for creating a new list (single view)
 
   $('#new-list-button').on('click', getNewList);
   $('#new-list-form').on('submit', onNewList);
+
+  //for creating a new list (in my lists view)
+  // $('#edit-content').on('click', 'add-list-all-view', getNewList);
+  // $('#new-list-form').on('submit', onNewListAllView);
+
 
   // for updating a list title (single list view)
 
