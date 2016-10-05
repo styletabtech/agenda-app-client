@@ -24,6 +24,21 @@ https://www.lucidchart.com/documents/edit/01b90f84-b33f-464f-a8f0-fd674b38addd?s
 </ul>
 
 <h3>My Process:</h3>
+<ol>
+<li>Get ideas for table structure and intial wireframe on paper</li>
+<li>Create ERD</li>
+<li>Creat wireframe</li>
+<li>Review scope of project with consultant</li>
+<li>Update ERD for scope of project</li>
+<li>Build database</li>
+<li>Test models and API end points</li>
+<li>Create a simple front end in HTML and CSS</li>
+<li>Build and test authentication on front and back end </li>
+<li>Build front end with Javascript, jQuery and AJAX</li>
+<li>Test api end points for each new feature</li>
+<li>Clean up styling and html when features are complete</li>
+
+</ol>
 
 <h3>Unfinished Business:</h3>
 <ul>
