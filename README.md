@@ -10,6 +10,8 @@
 <h3>ERD:</h3>
 https://www.lucidchart.com/documents/edit/01b90f84-b33f-464f-a8f0-fd674b38addd?shared=true&
 
+<h3>API Repo:</h3>https://github.com/styletab/agenda-app-rails-api
+
 <h3>Technologies Used:</h3>HTML, CSS, Bootstrap, Handlebars, Ruby on Rails, Heroku
 
 <h3>User Stories:</h3>
