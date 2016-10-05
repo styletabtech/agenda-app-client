@@ -17,7 +17,7 @@ const proceedToSignUp = () => {
 // sign up
 
 const signUpSuccess = (data) => {
-  console.log('sign up success');
+
   app.user = data.user;
   $('.sign-up-wrapper').addClass('hide');
   $('.main-interface').removeClass('hide');
@@ -27,8 +27,7 @@ const signUpSuccess = (data) => {
 // login
 
 const loginSuccess = (data) => {
-  console.log('login data is', data);
-  console.log('login success');
+  // console.log('user is', data);
   app.user = data.user;
   $('.login-wrapper').addClass('hide');
   $('.main-interface').removeClass('hide');
@@ -44,7 +43,7 @@ const proceedToChangePw = () => {
 
 const changePasswordSuccess = () => {
 //  console.log('change PW data is', data);
-  console.log('change password success');
+
 //  app.user = data.user;
     $('.items').removeClass('hide');
     $('#change-pw').addClass('hide');
@@ -57,7 +56,7 @@ const changePasswordSuccess = () => {
 // sign out
 
 const signOutSuccess = () => {
-  console.log('sign out success');
+
   app.user = null;
   $('.main-interface').addClass('hide');
   $('.intro-wrapper').removeClass('hide');

@@ -1,0 +1,37 @@
+<div class="item-wrapper" data-id={{id}}>
+<h1>My items:</h1>
+  <table>
+    <tbody>
+        <thead>
+          <th>DATE</th>
+          <th>TASK</th>
+          <th>PRIORITY</th>
+          <th>DUE</th>
+        </thead>
+
+        {{#each items}}
+          <tr>
+            <td>
+              {{this.due_date}}
+            </td>
+            <td>
+              {{this.name}}
+            </td>
+            <td>
+              {{this.priority}}
+            </td>
+            <td>
+              {{this.due_time}}
+            </td>
+            <td>
+              <button id={{id}} class="btn edit-item">EDIT</button>
+            </td>
+            <td>
+              <button id={{id}} class="btn delete-item">DELETE</button>
+            </td>
+          </tr>
+    </tbody>
+
+    {{/each}}
+  </table>
+</div>

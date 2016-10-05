@@ -1,34 +1,13 @@
-<h1>My Lists:</h1>
+<!-- <div class="add-list-wrapper" data-id={{id}}> -->
+<h1>My Lists</h1>
+<!-- <button id={{id}} class="btn add-list-all-view">ADD</button> -->
+<!-- </div> -->
 
 {{#each lists}}
 
 <div class="list-name-wrapper" data-id={{id}}>
-<h2> {{title}}
-  <button id={{this.id}} class="btn edit-list">EDIT</button>
-<button id={{this.id}} class="btn delete-list">DELETE</button> </h2>
-<table>
-  <thead>
-    <th>DATE</th>
-    <th>TASK</th>
-    <th>PRIORITY</th>
-    <th>DUE</th>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        {{this.date}}
-      </td>
-    <td>
-        {{this.task}}
-    </td>
-    <td>
-      {{this.priority}}
-    </td>
-    <td>
-      {{this.due}}
-    </td>
-  </tr>
-  </tbody>
-</table>
-</div>
+{{> all-lists}}
+{{> add-new-item}}
+
 {{/each}}
+</div>

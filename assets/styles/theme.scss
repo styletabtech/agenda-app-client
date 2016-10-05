@@ -11,11 +11,30 @@ body {
   display: none;
 }
 
+.show {
+  display: inline-block;
+}
+
+.homepage {
+  height: 100px;
+  left: 50%;
+  margin: -150px 0 0 -170px;
+  padding: 15px;
+  position: absolute;
+  top: 50%;
+  width: 300px;
+}
+
+.interface-header {
+  text-align: left;
+}
+
 h1,
 h2,
 h3,
-h5 {
-  border: 2px solid $form-color;
+h5,
+li {
+//  border: 2px solid $form-color;
   color: $header-font-color;
 }
 
@@ -32,25 +51,26 @@ h5 {
   color: $hover-color;
 }
 
+
+.form-container {
+  display: block;
+  text-align: center;
+}
+
 form {
   background-color: $form-background;
-  border: 3px solid $form-border;
   color: $form-color;
-  margin: auto;
-  margin-top: 10px;
-  padding: 20px 15px;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px;
   position: relative;
-  text-align: center;
-  width: 250px;
   z-index: 100;
 }
 
-.form-container {
-  padding: 10px 5px;
-}
 
 label {
-  padding-top: 10px;
+  // margin: 0 auto;
+  // padding-top: 10px;
 }
 
 input {
@@ -62,7 +82,7 @@ input {
 
 
 .submit {
-  padding-top: 20px;
+//  padding-top: 20px;
 }
 
 ul {
@@ -72,96 +92,35 @@ ul {
   padding: 0;
 }
 
-ul
-li {
-  cursor: pointer;
-  font-size: 18px;
-  padding: 12px 8px 12px 40px;
-  position: relative;
-  transition: .2s;
-}
-
-// ul li.checked {
-//   text-decoration: line-through;
-// }
-//
-// // Add a "checked" mark when clicked on
-// ul li.checked::before {
-//   border-style: solid;
-//   border-width: 0 2px 2px 0;
-//   content: '';
-//   height: 10px;
-//   left: 16px;
-//   position: absolute;
-//   top: 10px;
-//   transform: rotate(45deg);
-// //   width: 7px;
-// }
 
 //Style the close button
 
 .edit-list {
 //  padding: 12px 16px;
 //  position: absolute;
+//  border: 2px solid;
   padding-right: 5%;
 //  top: 0;
 }
 
-.delete-list {
-//  padding: 12px 16px;
-//  position: absolute;
-  padding-right: 3%;
-//  top: 0;
-}
-
-// .close:hover {
-//   background-color: #32335c;
-//   color: white;
+// .delete-list {
+// //  padding: 12px 16px;
+// //  position: absolute;
+//   border: 2px solid;
+//   padding-right: 3%;
+// //  top: 0;
 // }
 
-//  Style the header
-.my-items {
-  padding: 30px 40px;
-  text-align: center;
-}
 
-// Clear floats after the header
-.my-items::after {
-  clear: both;
-  content: '';
-  display: table;
-}
-
-// Style the input
-.list-input {
-  border: 0;
-  border-bottom: 2px solid $header-font-color;
-  float: left;
-  font-size: 16px;
-  padding: 10px;
-  width: 75%;
-}
-
-//Style the "Add" button
-.add-btn {
-  background-color: $header-font-color;
-  cursor: pointer;
-  float: left;
-  font-size: 16px;
-  padding: 10px;
-  text-align: center;
-  transition: .3s;
-  width: 25%;
-}
 
 .top-nav {
-  border: 2px solid $form-color;
+//  border: 2px solid $form-color;
   padding-left: 0;
   text-align: left;
 }
 
 .bottom-nav {
-  border: 2px solid $header-font-color;
+//  border: 2px solid $header-font-color;
   padding-left: 0;
   text-align: left;
 }
@@ -175,66 +134,40 @@ li {
 }
 
 .navbar-btn {
-  border: 2px solid $header-font-color;
+//  border: 2px solid $header-font-color;
 }
 
 .content-wrapper {
-  border: 2px solid $header-font-color;
+//  border: 2px solid $header-font-color;
   float: right;
   margin-left: 2.5%;
   margin-right: 2.5%;
   width: 80%;
 }
 
-table {
-  border-collapse: collapse;
-  display: table;
-  text-align: center;
-  vertical-align: middle;
-  width: 100%;
-}
 
 
-thead {
-  display: table-header-group;
-}
-
-th {
-  border: 2px solid $form-color;
-  text-align: center;
-  vertical-align: middle;
-}
-
-// .items {
-//   border: 2px solid $header-font-color;
-// //  display: table;
-//   float: right;
-//   height: 90%;
-//   margin-left: 2.5%;
-//   margin-right: 2.5%;
-//   width: 80%;
-// }
 
 .add-items {
   display: table-cell;
 }
 
-.list-toolbar {
-  background-color: $form-background;
-}
-
-.new-item {
-  background-color: $form-color;
-}
-
-.intro-wrapper {
-  border: 2px solid $header-font-color;
-}
-
-.login-wrapper {
-  border: 2px solid $header-font-color;
-}
-
-.sign-up-wrapper {
-  border: 2px solid $test-border;
-}
+// .list-toolbar {
+//   background-color: $form-background;
+// }
+//
+// .new-item {
+//   background-color: $form-color;
+// }
+//
+// .intro-wrapper {
+//   border: 2px solid $header-font-color;
+// }
+//
+// .login-wrapper {
+//   border: 2px solid $header-font-color;
+// }
+//
+// .sign-up-wrapper {
+//   border: 2px solid $test-border;
+// }

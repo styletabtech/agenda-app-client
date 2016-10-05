@@ -55,7 +55,7 @@ const getChangePassword = function (event) {
 const onChangePassword = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
-  console.log('data in events is', data);
+//  console.log('data in events is', data);
   api.changePassword(data)
   .done(ui.changePasswordSuccess)
   .fail(ui.failure);
@@ -87,8 +87,20 @@ const addHandlers = () => {
  $('#login').on('submit', onLogIn);
 
 // //change pw
-  $('#change-pw-nav').on('click', getChangePassword);
-  $('#change-pw').on('submit', onChangePassword);
+
+$('#change-pw-nav').on('click', function () {
+  $('#changePwModal').modal('show');
+});
+$('#change-pw').on('submit', onChangePassword);
+
+$('#change-pw').on('submit', function(){
+  $('#changePwModal').modal('hide');
+
+  });
+
+
+  // $('#change-pw-nav').on('click', getChangePassword);
+  // $('#change-pw').on('submit', onChangePassword);
 
 // // sign out
 $('#sign-out-nav').on('click', onSignOut);
@@ -99,6 +111,7 @@ $(document).on('ready', function(){
 });
 
 };
+
 
 module.exports = {
   addHandlers,
