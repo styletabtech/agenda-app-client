@@ -1,13 +1,7 @@
 <div class="list-name-wrapper" data-id={{id}}>
-  <h2>{{this.title}}
-  <button id={{this.id}} class="btn edit-list">EDIT</button>
-  <button id={{this.id}} class="btn delete-list">DELETE</button></h2>
+  {{> lists-partial}}
 
-
-  {{#each this.items}}
 </div>
-  {{/each}}
-
 
   <!-- // were nested inside this object now and so should be
   able to do {{date}} etc.  -->

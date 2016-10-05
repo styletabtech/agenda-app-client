@@ -55,9 +55,10 @@
         <div class="navbar">
           <ul class="top-nav">
             <li>  <button type="button" id="user-nav" class="btn navbar-btn">USER</button></li>
+            <!-- <li>  <button type="button" id="new-item-button" class="btn navbar-btn">ADD ITEM</button></li> -->
             <li>  <button type="button" id="new-list-button" class="btn navbar-btn">NEW LIST</button></li>
-            <li>  <button type="button" id="today-nav" class="btn navbar-btn">TODAY</button></li>
-            <li>  <button type="button" id="week-nav" class="btn navbar-btn">THIS WEEK</button></li>
+            <!-- <li>  <button type="button" id="today-nav" class="btn navbar-btn">TODAY</button></li> -->
+            <!-- <li>  <button type="button" id="week-nav" class="btn navbar-btn">THIS WEEK</button></li> -->
             <li>  <button type="button" id="my-lists-button" class="btn navbar-btn">MY LISTS</button></li>
           </ul>
           <ul class="bottom-nav">
@@ -114,7 +115,26 @@
               </ol>
           </div>
         </div> -->
-      </main>
+
+      <!-- Add New Item -->
+
+      <form id="new-item-form" class="form-container hide">
+        <label>Item</label>
+        <input name="item[name]" type="text">
+        <label>Date</label>
+        <input name="item[due_date]" type="date">
+        <label>Priority</label>
+        <select name="item[priority]" id = "priority">
+              <option value = ""></option>
+              <option value = "low">low</option>
+              <option value = "medium">medium</option>
+              <option value = "high">high</option>
+            </select>
+        <label>Time</label>
+        <input name="item[due_time]" type="time">
+        <input type="hidden" id="listIdItemAdd" name="item[list_id]" value="wrong">
+        <input type="submit" class="btn btn-primary submit" id="new-item-submit" value="ADD ITEM">
+      </form>
 
       <!-- Update a list title -->
       <form id="update-list-form" class="form-container hide">
@@ -122,7 +142,6 @@
         <input name="list[title]" type="text">
         <input type="submit" class="btn btn-primary submit" id="update-list-submit" value="UPDATE LIST">
       </form>
-
 
       <!-- Add New List -->
 
@@ -143,5 +162,6 @@
       <div class="pw-success hide form-msg">Changed!</div>
       <div class="pw-error hide form-msg">Try Again!</div>
 
+      </main>
     </body>
 </html>

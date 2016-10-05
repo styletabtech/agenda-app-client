@@ -17,7 +17,8 @@ const getAllLists = () => {
 
 // show a list
 
-const getOneList = () => {
+const getOneList = (data) => {
+console.log('one list data is', data);
 return $.ajax ({
     url: app.host + '/lists/' + $('.list-name-wrapper').data('id'),
     method: 'GET',

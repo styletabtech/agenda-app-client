@@ -1,0 +1,15 @@
+<div class="item-wrapper" data-id={{id}}>
+<h1>{{name}}</h1>
+  <ul>
+{{#each items}}
+    <li>Date: {{due_date}}</li>
+    <li>Task: {{name}}</li>
+    <li>Priority: {{priority}}</li>
+    <li>Due: {{due_time}}</li>
+{{/each}}
+    <li><button id={{id}} class="btn edit-item">EDIT</button></li>
+    <li><button id={{id}} class="btn delete-item">DELETE</button></li>
+  </ul>
+
+
+</div>
