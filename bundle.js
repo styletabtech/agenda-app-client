@@ -298,7 +298,7 @@ webpackJsonp([0],[
 	'use strict';
 
 	var app = {
-	  host: 'http://localhost:3000'
+	  host: 'https://agenda-api-3000.herokuapp.com'
 	};
 
 	module.exports = app;
