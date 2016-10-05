@@ -15,12 +15,22 @@ body {
   display: inline-block;
 }
 
+.homepage {
+  height: 100px;
+  left: 50%;
+  margin: -150px 0 0 -170px;
+  padding: 15px;
+  position: absolute;
+  top: 50%;
+  width: 300px;
+}
+
 h1,
 h2,
 h3,
 h5,
 li {
-  border: 2px solid $form-color;
+//  border: 2px solid $form-color;
   color: $header-font-color;
 }
 
@@ -37,25 +47,26 @@ li {
   color: $hover-color;
 }
 
+
+.form-container {
+  display: block;
+  text-align: center;
+}
+
 form {
   background-color: $form-background;
-  border: 3px solid $form-border;
   color: $form-color;
-  margin: auto;
-  margin-top: 10px;
-  padding: 20px 15px;
+  display: inline-block;
+  margin: 0 auto;
+  padding: 10px;
   position: relative;
-  text-align: center;
-  width: 250px;
   z-index: 100;
 }
 
-.form-container {
-  padding: 10px 5px;
-}
 
 label {
-  padding-top: 10px;
+  // margin: 0 auto;
+  // padding-top: 10px;
 }
 
 input {
@@ -67,7 +78,7 @@ input {
 
 
 .submit {
-  padding-top: 20px;
+//  padding-top: 20px;
 }
 
 ul {
@@ -83,7 +94,7 @@ ul {
 .edit-list {
 //  padding: 12px 16px;
 //  position: absolute;
-  border: 2px solid;
+//  border: 2px solid;
   padding-right: 5%;
 //  top: 0;
 }
@@ -97,49 +108,15 @@ ul {
 // }
 
 
-//  Style the header
-.my-items {
-  padding: 30px 40px;
-  text-align: center;
-}
-
-// Clear floats after the header
-.my-items::after {
-  clear: both;
-  content: '';
-  display: table;
-}
-
-// Style the input
-.list-input {
-  border: 0;
-  border-bottom: 2px solid $header-font-color;
-  float: left;
-  font-size: 16px;
-  padding: 10px;
-  width: 75%;
-}
-
-//Style the "Add" button
-.add-btn {
-  background-color: $header-font-color;
-  cursor: pointer;
-  float: left;
-  font-size: 16px;
-  padding: 10px;
-  text-align: center;
-  transition: .3s;
-  width: 25%;
-}
 
 .top-nav {
-  border: 2px solid $form-color;
+//  border: 2px solid $form-color;
   padding-left: 0;
   text-align: left;
 }
 
 .bottom-nav {
-  border: 2px solid $header-font-color;
+//  border: 2px solid $header-font-color;
   padding-left: 0;
   text-align: left;
 }
@@ -153,58 +130,40 @@ ul {
 }
 
 .navbar-btn {
-  border: 2px solid $header-font-color;
+//  border: 2px solid $header-font-color;
 }
 
 .content-wrapper {
-  border: 2px solid $header-font-color;
+//  border: 2px solid $header-font-color;
   float: right;
   margin-left: 2.5%;
   margin-right: 2.5%;
   width: 80%;
 }
 
-table {
-  border-collapse: collapse;
-  display: table;
-  text-align: center;
-  vertical-align: middle;
-  width: 100%;
-}
 
-
-thead {
-  display: table-header-group;
-}
-
-th
-tr {
-  border: 2px solid $form-color;
-  text-align: center;
-  vertical-align: middle;
-}
 
 
 .add-items {
   display: table-cell;
 }
 
-.list-toolbar {
-  background-color: $form-background;
-}
-
-.new-item {
-  background-color: $form-color;
-}
-
-.intro-wrapper {
-  border: 2px solid $header-font-color;
-}
-
-.login-wrapper {
-  border: 2px solid $header-font-color;
-}
-
-.sign-up-wrapper {
-  border: 2px solid $test-border;
-}
+// .list-toolbar {
+//   background-color: $form-background;
+// }
+//
+// .new-item {
+//   background-color: $form-color;
+// }
+//
+// .intro-wrapper {
+//   border: 2px solid $header-font-color;
+// }
+//
+// .login-wrapper {
+//   border: 2px solid $header-font-color;
+// }
+//
+// .sign-up-wrapper {
+//   border: 2px solid $test-border;
+// }

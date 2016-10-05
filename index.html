@@ -10,12 +10,13 @@
       <section class="homepage">
         <div class="intro-wrapper">
           <h1>DIA</h1>
-          <h3>Taking it one day at a time</h3>
+          <h3><i>Taking it one list at a time</i></h3>
             <div class="login-button">
               <button type="button" id="login-nav" class="btn login-btn">LOGIN</button>
             </div>
         </div>
             <!-- Login -->
+        <div class="form-container">
         <div class="login-wrapper hide">
           <h1>Login</h1>
             <form id="login">
@@ -29,15 +30,17 @@
             </form>
 
             <!-- Sign Up -->
+
           <h5>Don't have an account?</h5>
           <div class="signup-button">
             <button type="button" id="signup-nav" class="btn signup-btn">SIGN UP MEOW</button>
           </div>
-        </div>
+          </div>
+
         <div class="sign-up-wrapper hide">
           <h1>Create an account</h1>
             <form id="sign-up">
-              <label>Your Email</label>
+              <label>Email</label>
               <input name="credentials[email]" type="email">
               <label>Password</label>
               <input name="credentials[password]" type="password">
@@ -46,15 +49,16 @@
               <input type="submit" class="btn btn-primary submit" id="sign-up-submit" value="SUBMIT">
             </form>
         </div>
+    </div>
 
       </section>
 
       <main class="main-interface hide">
         <h1>DIA</h1>
-        <h3>Taking it one day at a time</h3>
+
         <div class="navbar">
           <ul class="top-nav">
-            <li>  <button type="button" id="user-nav" class="btn navbar-btn">USER</button></li>
+            <!-- <li>  <button type="button" id="user-nav" class="btn navbar-btn">USER</button></li> -->
             <!-- <li>  <button type="button" id="new-item-button" class="btn navbar-btn">ADD ITEM</button></li> -->
             <li>  <button type="button" id="new-list-button" class="btn navbar-btn">NEW LIST</button></li>
             <!-- <li>  <button type="button" id="today-nav" class="btn navbar-btn">TODAY</button></li> -->
@@ -117,8 +121,8 @@
         </div> -->
 
       <!-- Add New Item -->
-
-      <form id="new-item-form" class="form-container hide">
+      <div class="form-container">
+      <form id="new-item-form" class="hide">
         <label>Item</label>
         <input name="item[name]" type="text">
         <label>Date</label>
@@ -135,23 +139,103 @@
         <input type="hidden" id="listIdItemAdd" name="item[list_id]" value="wrong">
         <input type="submit" class="btn btn-primary submit" id="new-item-submit" value="ADD ITEM">
       </form>
+    </div>
 
       <!-- Update a list title -->
+
+    <div class="modal fade" id="editTitleModal" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close"><span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">EDIT LIST</h4>
+            </div>
+            <div class="modal-body">
+              <form id="update-list-form" class="form-container">
+                <label>List Title</label>
+                <input name="list[title]" type="text">
+                <input type="hidden" id="listIdUpdateTitle" name="list[list_id]" value="wrong">
+                <input type="submit" class="btn btn-primary submit" id="update-list-submit" value="UPDATE LIST">
+              </form>
+              <div class="pw-success hide form-msg">Changed!</div>
+              <div class="pw-error hide form-msg">Try Again!</div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- <div class="form-container">
       <form id="update-list-form" class="form-container hide">
         <label>List Title</label>
         <input name="list[title]" type="text">
+        <input type="hidden" id="listIdUpdateTitle" name="list[list_id]" value="wrong">
         <input type="submit" class="btn btn-primary submit" id="update-list-submit" value="UPDATE LIST">
       </form>
+    </div> -->
 
       <!-- Add New List -->
 
+      <div class="modal fade" id="newListModal" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close"><span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">NEW LIST</h4>
+            </div>
+            <div class="modal-body">
+              <form id="new-list-form" class="form-container">
+                <label>List Title</label>
+                <input name="list[title]" type="text" id='list-id'>
+                <input type="submit" class="btn btn-primary submit" id="new-list-submit" value="ADD LIST">
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>
+
+<!--
+      <div class="form-container">
       <form id="new-list-form" class="form-container hide">
         <label>List Title</label>
         <input name="list[title]" type="text" id='list-id'>
         <input type="submit" class="btn btn-primary submit" id="new-list-submit" value="ADD LIST">
       </form>
+    </div> -->
 
       <!-- Change Password -->
+
+
+      <div class="modal fade" id="changePwModal" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+          aria-label="Close"><span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">CHANGE PASSWORD</h4>
+        </div>
+        <div class="modal-body">
+          <form id="change-pw" class="form-container">
+            <label>Old Password</label>
+            <input name="passwords[old]" type="password">
+            <label>New Password</label>
+            <input name="passwords[new]" type="password">
+            <input type="submit" class="btn btn-primary" id="change-pw-button">
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+      <!-- <div class="form-container">
       <form id="change-pw" class="form-container hide">
         <label>Old Password</label>
         <input name="passwords[old]" type="password">
@@ -161,7 +245,7 @@
       </form>
       <div class="pw-success hide form-msg">Changed!</div>
       <div class="pw-error hide form-msg">Try Again!</div>
-
+    </div> -->
       </main>
     </body>
 </html>

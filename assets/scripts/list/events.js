@@ -63,19 +63,22 @@ const getUpdateList = function (event) {
 };
 // for updating a list title in New List view
 
-const onUpdateList = function (event) {
-  event.preventDefault();
-  let data = getFormFields(event.target);
-  console.log('updateList data', data);
-    api.updateListTitle(data)
-        .done(getAList(data))
-        .fail(ui.failure);
-};
+// const onUpdateList = function (event) {
+//   event.preventDefault();
+//   let data = getFormFields(event.target);
+//   console.log('updateList data', data);
+//     api.updateListTitle(data)
+//         .done(getAList(data))
+//         .fail(ui.failure);
+// };
 
 // for updating a list title in My Lists View
 
 const onUpdateListAllView = function (event) {
   event.preventDefault();
+  let updateListId = $('.list-name-wrapper').data('id');
+  console.log('targeted list id is', updateListId);
+  $("#listIdUpdateTitle").val(updateListId);
   let data = getFormFields(event.target);
   console.log('updateList data', data);
     api.updateListTitle(data)
@@ -83,6 +86,8 @@ const onUpdateListAllView = function (event) {
         .done(getMyLists)
         .fail(ui.failure);
 };
+
+
 
 // for deleting a given list
 
@@ -105,8 +110,18 @@ const addHandlers = () => {
 
   //for creating a new list (single view)
 
-  $('#new-list-button').on('click', getNewList);
+  // $('#new-list-button').on('click', getNewList);
+  // $('#new-list-form').on('submit', onNewList);
+
+  $('#new-list-button').on('click', function () {
+    $('#newListModal').modal('show');
+  });
   $('#new-list-form').on('submit', onNewList);
+  $('#new-list-form').on('submit', function() {
+  $('#newListModal').modal('hide');
+
+});
+
 
   //for creating a new list (in my lists view)
   // $('#edit-content').on('click', 'add-list-all-view', getNewList);
@@ -115,13 +130,22 @@ const addHandlers = () => {
 
   // for updating a list title (single list view)
 
-  $('#edit-content').on('click', '.edit-list', getUpdateList);
- $('#update-list-form').on('submit', onUpdateList);
+ //  $('#edit-content').on('click', '.edit-list', getUpdateList);
+ // $('#update-list-form').on('submit', onUpdateList);
 
  // for updating a list title (My Lists list view)
 
- $('#edit-content').on('click', '.edit-list-all-view', getUpdateList);
+ $('#edit-content').on('click', '.edit-list-all-view', function () {
+   $('#editTitleModal').modal('show');
+ });
 $('#update-list-form').on('submit', onUpdateListAllView);
+$('#update-list-form').on('submit', function() {
+$('#editTitleModal').modal('hide');
+ });
+
+
+//  $('#edit-content').on('click', '.edit-list-all-view', getUpdateList);
+// $('#update-list-form').on('submit', onUpdateListAllView);
 
   // deleting a list
   $('#edit-content').on('click', '.delete-list', onDeleteList);
@@ -135,7 +159,7 @@ module.exports = {
   getNewList,
   onNewList,
   getUpdateList,
-  onUpdateList,
+  // onUpdateList,
   onUpdateListAllView,
   onDeleteList
 

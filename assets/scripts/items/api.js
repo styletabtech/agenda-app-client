@@ -6,7 +6,7 @@ const app = require('../app');
 // create new item
 
 const createNewItem = (data) => {
-  console.log('new item data is', data);
+  // console.log('new item data is', data);
   return $.ajax({
     url: app.host + '/items',
     method: 'POST',

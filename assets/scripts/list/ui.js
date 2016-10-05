@@ -10,7 +10,7 @@ const showNewListTemplate = require ('../templates/get-new-list.handlebars');
 // for getting all lists
 
 const myListsSuccess = (data) => {
-  console.log('list success data is', data);
+//  console.log('list success data is', data);
   let lists = data;
   // console.log(data);
   $(".content").html(showAllListsTemplate(lists));
@@ -23,11 +23,11 @@ const proceedToCreateList = () => {
 };
 
 
-const newListSuccess = (data) => {
+const newListSuccess = () => {
 //  console.log('new list data is', data);
 //  app.user = data.user;
-  let newList = data.list;
-  console.log('newlist data is', newList);
+//  let newList = data.list;
+//  console.log('newlist data is', newList);
   $('#new-list-form').addClass('hide');
 //  $(".content").append(showAllListsTemplate(newList));
 };
@@ -39,7 +39,7 @@ const proceedToUpdateList = () => {
 };
 
 const updateListSuccess = () => {
-  console.log('successful patch');
+//  console.log('successful patch');
   $('#update-list-form').addClass('hide');
 };
 
@@ -52,7 +52,7 @@ const showUpdatedList = (data) => {
 // for deleting a list
 
 const deleteListSuccess = () => {
-  console.log('successful delete');
+//  console.log('successful delete');
 //  $('.delete-list').html('');
   // app.user.lists[list].id = null;
   //let deletedList = data.list;
@@ -68,7 +68,7 @@ const failure = () => {
 
 const clearMyLists = () => {
   event.preventDefault();
-  console.log('clearMyLists is running');
+  //console.log('clearMyLists is running');
   $(".content").html("");
   $('#update-list-form').addClass('hide');
 };
