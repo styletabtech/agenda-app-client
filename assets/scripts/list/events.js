@@ -45,6 +45,7 @@ const getUpdateList = function (event) {
   event.preventDefault();
   ui.proceedToUpdateList(event);
 };
+// for updating a list title in New List view
 
 const onUpdateList = function (event) {
   event.preventDefault();
@@ -52,6 +53,18 @@ const onUpdateList = function (event) {
   console.log('updateList data', data);
     api.updateListTitle(data)
         .done(getAList(data))
+        .fail(ui.failure);
+};
+
+// for updating a list title in My Lists View
+
+const onUpdateListAllView = function (event) {
+  event.preventDefault();
+  let data = getFormFields(event.target);
+  console.log('updateList data', data);
+    api.updateListTitle(data)
+      .done(ui.clearMyLists)
+        .done(getMyLists)
         .fail(ui.failure);
 };
 
@@ -79,10 +92,15 @@ const addHandlers = () => {
   $('#new-list-button').on('click', getNewList);
   $('#new-list-form').on('submit', onNewList);
 
-  // for updating a list title
+  // for updating a list title (single list view)
 
   $('#edit-content').on('click', '.edit-list', getUpdateList);
  $('#update-list-form').on('submit', onUpdateList);
+
+ // for updating a list title (My Lists list view)
+
+ $('#edit-content').on('click', '.edit-list-all-view', getUpdateList);
+$('#update-list-form').on('submit', onUpdateListAllView);
 
   // deleting a list
   $('#edit-content').on('click', '.delete-list', onDeleteList);
@@ -97,6 +115,7 @@ module.exports = {
   onNewList,
   getUpdateList,
   onUpdateList,
+  onUpdateListAllView,
   onDeleteList
 
 };
