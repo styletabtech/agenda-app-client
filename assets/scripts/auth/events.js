@@ -58,7 +58,7 @@ const onChangePassword = function (event) {
 //  console.log('data in events is', data);
   api.changePassword(data)
   .done(ui.changePasswordSuccess)
-  .fail(ui.failure);
+  .fail(ui.passwordFail);
 };
 
 // //sign out
@@ -93,14 +93,7 @@ $('#change-pw-nav').on('click', function () {
 });
 $('#change-pw').on('submit', onChangePassword);
 
-$('#change-pw').on('submit', function(){
-  $('#changePwModal').modal('hide');
-
-  });
-
-
-  // $('#change-pw-nav').on('click', getChangePassword);
-  // $('#change-pw').on('submit', onChangePassword);
+  };
 
 // // sign out
 $('#sign-out-nav').on('click', onSignOut);
@@ -109,8 +102,6 @@ $(document).on('ready', function(){
   $('.intro-wrapper').show();
 
 });
-
-};
 
 
 module.exports = {

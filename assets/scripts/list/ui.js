@@ -28,7 +28,7 @@ const newListSuccess = () => {
 //  app.user = data.user;
 //  let newList = data.list;
 //  console.log('newlist data is', newList);
-  $('#new-list-form').addClass('hide');
+//  $('#new-list-form').addClass('hide');
 //  $(".content").append(showAllListsTemplate(newList));
 };
 
@@ -40,12 +40,12 @@ const proceedToUpdateList = () => {
 
 const updateListSuccess = () => {
 //  console.log('successful patch');
-  $('#update-list-form').addClass('hide');
+//  $('#update-list-form').addClass('hide');
 };
 
 const showUpdatedList = (data) => {
   let updatedList = data.list;
-  $('#update-list-form').addClass('hide');
+//  $('#update-list-form').addClass('hide');
   $(".content").html(showNewListTemplate(updatedList));
 };
 
@@ -70,7 +70,7 @@ const clearMyLists = () => {
   event.preventDefault();
   //console.log('clearMyLists is running');
   $(".content").html("");
-  $('#update-list-form').addClass('hide');
+//  $('#update-list-form').addClass('hide');
 };
 
 module.exports = {

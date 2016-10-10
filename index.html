@@ -54,8 +54,11 @@
       </section>
 
       <main class="main-interface hide">
+        <section class="interface-header-wrapper">
         <h1 class='interface-header'>DIA</h1>
-
+        <!-- <h3 class="pw-success form-msg">Success!</h3>
+        <h3 class="pw-error hide form-msg">Oops, Try Again</h3> -->
+      </section>
         <div class="navbar">
           <ul class="top-nav">
             <!-- <li>  <button type="button" id="user-nav" class="btn navbar-btn">USER</button></li> -->
@@ -160,8 +163,6 @@
                 <input type="hidden" id="listIdUpdateTitle" name="list[list_id]" value="wrong">
                 <input type="submit" class="btn btn-primary submit" id="update-list-submit" value="UPDATE LIST">
               </form>
-              <div class="pw-success hide form-msg">Changed!</div>
-              <div class="pw-error hide form-msg">Try Again!</div>
             </div>
             </div>
           </div>
@@ -220,6 +221,7 @@
           aria-label="Close"><span aria-hidden="true">&times;</span>
           </button>
           <h4 class="modal-title" id="myModalLabel">CHANGE PASSWORD</h4>
+          <h5 class="pw-fail hide">OOPS, TRY AGAIN</h5>
         </div>
         <div class="modal-body">
           <form id="change-pw" class="form-container">
@@ -248,4 +250,6 @@
     </div> -->
       </main>
     </body>
+
+
 </html>

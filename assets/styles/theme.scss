@@ -25,6 +25,10 @@ body {
   width: 300px;
 }
 
+.inerface-header-wrapper {
+  display: inline-block;
+}
+
 .interface-header {
   text-align: left;
 }
@@ -36,6 +40,10 @@ h5,
 li {
 //  border: 2px solid $form-color;
   color: $header-font-color;
+}
+
+.form-msg {
+  text-align: center;
 }
 
 .btn {

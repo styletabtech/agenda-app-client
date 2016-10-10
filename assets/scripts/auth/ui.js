@@ -37,20 +37,20 @@ const loginSuccess = (data) => {
 
 const proceedToChangePw = () => {
   $('#change-pw').removeClass('hide');
-  $('.items').addClass('hide');
 
 };
 
 const changePasswordSuccess = () => {
-//  console.log('change PW data is', data);
+  $('#change-pw').on('submit', function(){
+    $('#changePwModal').modal('hide');
+  });
+};
 
-//  app.user = data.user;
-    $('.items').removeClass('hide');
-    $('#change-pw').addClass('hide');
-    $('.pw-success').removeClass('hide');
-    setTimeout(function() {
-     $('.pw-success').fadeOut();
-   }, 800);
+const passwordFail = () => {
+  $('.pw-fail').removeClass('hide');
+  setTimeout(function() {
+   $('.pw-fail').fadeOut();
+ }, 800);
 };
 
 // sign out
@@ -80,5 +80,6 @@ module.exports = {
   signUpSuccess,
   proceedToChangePw,
   changePasswordSuccess,
+  passwordFail,
   signOutSuccess,
 };
