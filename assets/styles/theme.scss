@@ -3,7 +3,11 @@
 }
 
 body {
-  background-color: $welcome-background;
+//  background-color: $form-background;
+  background-image: url('dia-homepage-image.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
   text-align: center;
 }
 
@@ -16,26 +20,32 @@ body {
 }
 
 .homepage {
-  height: 100px;
-  left: 50%;
-  margin: -150px 0 0 -170px;
-  padding: 15px;
-  position: absolute;
-  top: 50%;
-  width: 300px;
+  margin-left: 8%;
+  margin-top: 20%;
+  text-align: left;
+  top: 30%;
 }
 
-.inerface-header-wrapper {
+.intro-wrapper {
+  color: $homepage-font;
+}
+
+// .homepage {
+//   height: 100px;
+//   left: 50%;
+//   margin: -150px 0 0 -170px;
+//   padding: 15px;
+//   position: absolute;
+//   top: 50%;
+//   width: 300px;
+// }
+
+.interface-header-wrapper {
   display: inline-block;
 }
 
-.interface-header {
-  text-align: left;
-}
 
-h1,
 h2,
-h3,
 h5,
 li {
 //  border: 2px solid $form-color;
