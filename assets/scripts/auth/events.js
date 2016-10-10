@@ -29,7 +29,7 @@ const onSignUp = function (event) {
       .done(ui.signUpSuccess)
       .fail(ui.failure);
     })
-    .fail(ui.failure);
+    .fail(ui.failMessage);
 
 };
 
@@ -42,7 +42,7 @@ const onLogIn = function (event) {
 //  console.log('data is', data);
   api.logIn(data)
   .done(ui.loginSuccess)
-  .fail(ui.failure);
+  .fail(ui.failMessage);
 };
 
 // // change password
@@ -58,7 +58,7 @@ const onChangePassword = function (event) {
 //  console.log('data in events is', data);
   api.changePassword(data)
   .done(ui.changePasswordSuccess)
-  .fail(ui.passwordFail);
+  .fail(ui.failMessage);
 };
 
 // //sign out
@@ -92,8 +92,7 @@ $('#change-pw-nav').on('click', function () {
   $('#changePwModal').modal('show');
 });
 $('#change-pw').on('submit', onChangePassword);
-
-  };
+};
 
 // // sign out
 $('#sign-out-nav').on('click', onSignOut);

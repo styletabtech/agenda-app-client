@@ -21,6 +21,7 @@ const signUpSuccess = (data) => {
   app.user = data.user;
   $('.sign-up-wrapper').addClass('hide');
   $('.main-interface').removeClass('hide');
+  $('.homepage').addClass('hide');
 
 };
 
@@ -30,6 +31,7 @@ const loginSuccess = (data) => {
   // console.log('user is', data);
   app.user = data.user;
   $('.login-wrapper').addClass('hide');
+  $('.homepage').addClass('hide');
   $('.main-interface').removeClass('hide');
 };
 
@@ -41,16 +43,14 @@ const proceedToChangePw = () => {
 };
 
 const changePasswordSuccess = () => {
-  $('#change-pw').on('submit', function(){
-    $('#changePwModal').modal('hide');
-  });
+  $('#changePwModal').modal('hide');
 };
 
-const passwordFail = () => {
+const failMessage = () => {
   $('.pw-fail').removeClass('hide');
   setTimeout(function() {
    $('.pw-fail').fadeOut();
- }, 800);
+ }, 1000);
 };
 
 // sign out
@@ -80,6 +80,6 @@ module.exports = {
   signUpSuccess,
   proceedToChangePw,
   changePasswordSuccess,
-  passwordFail,
+  failMessage,
   signOutSuccess,
 };
