@@ -2,14 +2,32 @@
   box-sizing: border-box;
 }
 
-body {
-//  background-color: $form-background;
-  background-image: url('dia-homepage-image.jpg');
-  background-repeat: no-repeat;
+// body {
+//   background-color: $form-background;
+//   background-image: url('dia-homepage-image.jpg');
+//   background-repeat: no-repeat;
+//   background-size: 100%;
+//   position: absolute;
+//   text-align: center;
+// }
+
+.full {
+  background: url('dia-homepage-image.jpg') no-repeat center center fixed;
   background-size: cover;
-  position: absolute;
-  text-align: center;
 }
+
+.container-fluid {
+  background-color: transparent;
+}
+
+// .bgimage {
+//   background-image: url('dia-homepage-image.jpg');
+//   background-size: 100%;
+// }
+//
+// .bgimage-inside {
+//   padding-top: 37.36%; // this is actually (426/1140)*100
+// }
 
 .hide {
   display: none;
@@ -20,14 +38,25 @@ body {
 }
 
 .homepage {
-  margin-left: 8%;
-  margin-top: 20%;
+  // margin-left: 8%;
+  // margin-top: 20%;
+  // top: 30%;
+  background-color: transparent;
+  margin-bottom: 50px;
+  margin-top: 50px;
   text-align: left;
-  top: 30%;
+  z-index: 100;
 }
 
 .intro-wrapper {
+  background-color: transparent;
   color: $homepage-font;
+}
+
+h1
+h3 {
+  background-color: transparent;
+  border: 2px solid $header-font-color;
 }
 
 // .homepage {
