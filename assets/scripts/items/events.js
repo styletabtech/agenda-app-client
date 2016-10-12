@@ -5,8 +5,8 @@ const getFormFields = require('../../../lib/get-form-fields');
 const api = require('./api');
 const listApi = require('../list/api');
 const ui = require('./ui');
-const listUi = require('../list/ui');
-const listEvents = require('../list/events');
+// const listUi = require('../list/ui');
+// const listEvents = require('../list/events');
 
 // shows the add item form
 
@@ -35,21 +35,21 @@ const onAddItem = function (event) {
 
 // adds an item to a list in the all list view
 
-const onAddItemAllView = function (event) {
-  //console.log('onAddItem is running');
-  event.preventDefault();
-  let listId = $(event.target).data('id');
-  $("#listIdItemAdd").val(listId);
-  console.log('udpate listId is', listId);
-  let data = getFormFields(event.target);
-    console.log('add item all view is', data);
-    api.createNewItem(data)
-      .done(listUi.clearMyLists)
-      .done(listEvents.getMyLists(data))
-        .done(ui.newItemSuccess)
-        .fail(ui.failure);
-
-};
+// const onAddItemAllView = function (event) {
+//   //console.log('onAddItem is running');
+//   event.preventDefault();
+//   let listId = $(event.target).data('id');
+//   $("#listIdItemAdd").val(listId);
+//   console.log('udpate listId is', listId);
+//   let data = getFormFields(event.target);
+//     console.log('add item all view is', data);
+//     api.createNewItem(data)
+//       .done(listUi.clearMyLists)
+//       .done(listEvents.getMyLists(data))
+//         .done(ui.newItemSuccess)
+//         .fail(ui.failure);
+//
+// };
 
 
 
@@ -57,8 +57,17 @@ const addHandlers = () => {
 
   // add a new item (single view)
 
+  $('#edit-content').on('click', '.add-item', function () {
+   $('#addItemModal').modal('show');
+ });
+
   $('#edit-content').on('click', '.add-item', getNewItemForm);
    $('#new-item-form').on('submit', onAddItem);
+
+   $('#new-item-form').on('submit', function(){
+     $('#addItemModal').modal('hide');
+
+     });
 
    // add a new item (all list view)
 

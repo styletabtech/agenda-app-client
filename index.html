@@ -95,7 +95,7 @@
 
 
       <!-- Add New Item -->
-      <div class="form-container">
+      <!-- <div class="form-container">
       <form id="new-item-form" class="hide">
         <label>Item</label>
         <input name="item[name]" type="text">
@@ -113,7 +113,44 @@
         <input type="hidden" id="listIdItemAdd" name="item[list_id]" value="wrong">
         <input type="submit" class="btn btn-primary submit" id="new-item-submit" value="ADD ITEM">
       </form>
-    </div>
+    </div> -->
+
+    <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close"><span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">EDIT LIST</h4>
+            </div>
+            <div class="modal-body">
+              <form id="new-item-form" class="form-container hide">
+                <label>Item</label>
+                <input name="item[name]" type="text">
+                <label>Date</label>
+                <input name="item[due_date]" type="date">
+                <label>Priority</label>
+                <select name="item[priority]" id = "priority">
+                      <option value = ""></option>
+                      <option value = "low">low</option>
+                      <option value = "medium">medium</option>
+                      <option value = "high">high</option>
+                    </select>
+                <label>Time</label>
+                <input name="item[due_time]" type="time">
+                <input type="hidden" id="listIdItemAdd" name="item[list_id]" value="wrong">
+                <input type="submit" class="btn btn-primary submit" id="new-item-submit" value="ADD ITEM">
+              </form>
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
 
       <!-- Update a list title -->
 
@@ -137,7 +174,7 @@
             </div>
             </div>
           </div>
-        </div> -->
+        </div>
 
       <!-- <div class="form-container">
       <form id="update-list-form" class="form-container hide">
