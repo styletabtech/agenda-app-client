@@ -1,0 +1,21 @@
+<div class="modal fade" id="editTitleModal" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+          aria-label="Close"><span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">EDIT LIST</h4>
+        </div>
+        <div class="modal-body">
+          <form id="update-list-form" class="form-container">
+            <label>List Title</label>
+            <input name="list[title]" type="text">
+            <input type="hidden" id="listIdUpdateTitle" name="list[list_id]" value={{id}}>
+            <input type="submit" class="btn btn-primary submit" id="update-list-submit" value="UPDATE LIST">
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>

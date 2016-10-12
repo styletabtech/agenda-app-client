@@ -2,7 +2,8 @@
 //
 // const showAllListsTemplate = require('../templates/get-all-lists.handlebars');
 // const showNewListTemplate = require ('../templates/get-new-list.handlebars');
- const showNewItemTemplate = require ('../templates/add-new-item.handlebars');
+ const showNewItemTemplate = require ('../templates/single-list-view.handlebars');
+
 
 
 const proceedToItemForm = () => {

@@ -20,7 +20,8 @@ const getAllLists = () => {
 const getOneList = () => {
 // console.log('one list data is', data);
 return $.ajax ({
-    url: app.host + '/lists/' + $('.list-name-wrapper').data('id'),
+    url: app.host + '/lists/' + app.singleListId,
+    // $('.list-name-wrapper').data('id'),
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token,
@@ -31,7 +32,7 @@ return $.ajax ({
 // create new list
 
 const createNewList = (data) => {
-//  console.log('new list data is', data);
+ console.log('new list data is', data);
   return $.ajax({
     url: app.host + '/lists',
     method: 'POST',
@@ -49,9 +50,10 @@ const createNewList = (data) => {
 // edit a list title
 
 const updateListTitle = (data) => {
-//  console.log('update ajax data', data);
+console.log('update ajax data', data);
   return $.ajax({
-    url: app.host + '/lists/' + $('.list-name-wrapper').data('id'),
+    url: app.host + '/lists/' + app.editListId,
+    // $('#listIdUpdateTitle').data('id'),
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + app.user.token,

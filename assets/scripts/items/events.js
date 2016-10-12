@@ -62,8 +62,8 @@ const addHandlers = () => {
 
    // add a new item (all list view)
 
-   $('#edit-content').on('click', '.add-item-all-view', getNewItemForm);
-    $('#new-item-form').on('submit', onAddItemAllView);
+  //  $('#edit-content').on('click', '.add-item-all-view', getNewItemForm);
+  //   $('#new-item-form').on('submit', onAddItemAllView);
 
 
   // update an item

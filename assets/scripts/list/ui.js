@@ -4,43 +4,36 @@
 
 const showAllListsTemplate = require('../templates/get-all-lists.handlebars');
 const showNewListTemplate = require ('../templates/get-new-list.handlebars');
-//const deleteListTemplate = require ('../templates/delete-list.handlebars');
-
 
 // for getting all lists
 
 const myListsSuccess = (data) => {
 //  console.log('list success data is', data);
   let lists = data;
-  // console.log(data);
+   console.log(lists);
   $(".content").html(showAllListsTemplate(lists));
+};
+
+// for getting a single list (show)
+
+const singleListSuccess = (data) => {
+//  console.log('list success data is', data);
+  let list = data.list;
+   console.log('list is', list);
+  $(".content").html(showNewListTemplate(list));
 };
 
 // for creating a list
 
-const proceedToCreateList = () => {
-  $('#new-list-form').removeClass('hide');
-};
-
-
-const newListSuccess = () => {
-//  console.log('new list data is', data);
-//  app.user = data.user;
-//  let newList = data.list;
-//  console.log('newlist data is', newList);
-//  $('#new-list-form').addClass('hide');
-//  $(".content").append(showAllListsTemplate(newList));
-};
-
+// const proceedToCreateList = () => {
+//   $('#new-list-form').removeClass('hide');
+// };
 
 // for updating a list title
-const proceedToUpdateList = () => {
-  $('#update-list-form').removeClass('hide');
-};
 
-const updateListSuccess = () => {
-//  console.log('successful patch');
-//  $('#update-list-form').addClass('hide');
+const proceedToUpdateList = () => {
+    // $(".content").html(showModalTemplate(list_id));
+    // $('#editTitleModal').modal('show');
 };
 
 const showUpdatedList = (data) => {
@@ -48,16 +41,6 @@ const showUpdatedList = (data) => {
 //  $('#update-list-form').addClass('hide');
   $(".content").html(showNewListTemplate(updatedList));
 };
-
-// for deleting a list
-
-const deleteListSuccess = () => {
-//  console.log('successful delete');
-//  $('.delete-list').html('');
-  // app.user.lists[list].id = null;
-  //let deletedList = data.list;
-//  $('.content').html('');
- };
 
 const failure = () => {
   $('.pw-error').removeClass('hide');
@@ -74,13 +57,11 @@ const clearMyLists = () => {
 };
 
 module.exports = {
-  proceedToCreateList,
+//  proceedToCreateList,
   myListsSuccess,
-  newListSuccess,
-  deleteListSuccess,
   failure,
   proceedToUpdateList,
-  updateListSuccess,
   showUpdatedList,
-  clearMyLists
+  clearMyLists,
+  singleListSuccess
 };

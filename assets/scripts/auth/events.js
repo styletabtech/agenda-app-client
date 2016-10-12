@@ -100,6 +100,7 @@ $('#sign-out-nav').on('click', onSignOut);
 $(document).on('ready', function(){
   $('.intro-wrapper').show();
 
+
 });
 
 

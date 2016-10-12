@@ -16,18 +16,15 @@
   background-size: cover;
 }
 
-.container-fluid {
+body {
   background-color: transparent;
 }
 
-// .bgimage {
-//   background-image: url('dia-homepage-image.jpg');
-//   background-size: 100%;
-// }
-//
-// .bgimage-inside {
-//   padding-top: 37.36%; // this is actually (426/1140)*100
-// }
+.container-fluid {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+}
 
 .hide {
   display: none;
@@ -45,7 +42,7 @@
   margin-bottom: 50px;
   margin-top: 50px;
   text-align: left;
-  z-index: 100;
+  // z-index: 100;
 }
 
 .intro-wrapper {
@@ -56,21 +53,12 @@
 h1
 h3 {
   background-color: transparent;
-  border: 2px solid $header-font-color;
+  text-align: left;
 }
 
-// .homepage {
-//   height: 100px;
-//   left: 50%;
-//   margin: -150px 0 0 -170px;
-//   padding: 15px;
-//   position: absolute;
-//   top: 50%;
-//   width: 300px;
-// }
 
 .interface-header-wrapper {
-  display: inline-block;
+  display: block;
 }
 
 
@@ -79,6 +67,51 @@ h5,
 li {
 //  border: 2px solid $form-color;
   color: $header-font-color;
+
+}
+
+.top-nav {
+  margin-bottom: 0%;
+  padding-left: 0;
+  text-align: left;
+}
+
+.bottom-nav {
+  margin-top: 90%;
+  padding-left: 0;
+  text-align: left;
+}
+
+.navbar {
+  background-color: $nav-color;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+  margin-top: 7%;
+  width: 10%;
+
+}
+
+.content-wrapper {
+//  border: 2px solid black;
+  float: right;
+  //margin-left: -5%;
+  margin-right: 25%;
+  margin-top: 12%;
+  width: 50%;
+}
+
+.content {
+  background-color: $nav-color;
+  margin: 0 auto;
+}
+
+.list-name-wrapper {
+  text-align: center;
+}
+
+.list-title {
+  text-align: center;
 }
 
 .form-msg {
@@ -129,10 +162,6 @@ input {
 }
 
 
-.submit {
-//  padding-top: 20px;
-}
-
 ul {
   display: list-item;
   list-style: none;
@@ -161,61 +190,8 @@ ul {
 
 
 
-.top-nav {
-//  border: 2px solid $form-color;
-  padding-left: 0;
-  text-align: left;
-}
-
-.bottom-nav {
-//  border: 2px solid $header-font-color;
-  padding-left: 0;
-  text-align: left;
-}
-
-.navbar {
-  box-sizing: border-box;
-  display: block;
-  float: left;
-  width: 15%;
-
-}
-
-.navbar-btn {
-//  border: 2px solid $header-font-color;
-}
-
-.content-wrapper {
-//  border: 2px solid $header-font-color;
-  float: right;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-  width: 80%;
-}
-
-
 
 
 .add-items {
   display: table-cell;
 }
-
-// .list-toolbar {
-//   background-color: $form-background;
-// }
-//
-// .new-item {
-//   background-color: $form-color;
-// }
-//
-// .intro-wrapper {
-//   border: 2px solid $header-font-color;
-// }
-//
-// .login-wrapper {
-//   border: 2px solid $header-font-color;
-// }
-//
-// .sign-up-wrapper {
-//   border: 2px solid $test-border;
-// }

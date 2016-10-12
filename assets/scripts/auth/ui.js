@@ -33,6 +33,7 @@ const loginSuccess = (data) => {
   $('.login-wrapper').addClass('hide');
   $('.homepage').addClass('hide');
   $('.main-interface').removeClass('hide');
+  $('.full-interface').show();
 };
 
 // change password
