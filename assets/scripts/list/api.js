@@ -49,7 +49,6 @@ const createNewList = (data) => {
 // edit a list title
 
 const updateListTitle = (data) => {
-console.log('update ajax data', data);
   return $.ajax({
     url: app.host + '/lists/' + app.editListId,
     // $('#listIdUpdateTitle').data('id'),
