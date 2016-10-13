@@ -286,12 +286,12 @@ webpackJsonp([0],[
 /* 6 */
 /***/ function(module, exports) {
 
-	//change to https://agenda-api-3000.herokuapp.com after testng is complete
+	//change to https://agenda-api-3000.herokuapp.com after testng is complete or http://localhost:3000
 
 	'use strict';
 
 	var app = {
-	  host: 'https://agenda-api-3000.herokuapp.com'
+	  host: 'http://localhost:3000'
 	};
 
 	module.exports = app;
@@ -357,9 +357,9 @@ webpackJsonp([0],[
 	// sign out
 
 	var signOutSuccess = function signOutSuccess() {
-
 	  app.user = null;
 	  $('.main-interface').addClass('hide');
+	  $('.homepage').removeClass('hide');
 	  $('.intro-wrapper').removeClass('hide');
 	};
 
@@ -590,7 +590,6 @@ webpackJsonp([0],[
 	// create new list
 
 	var createNewList = function createNewList(data) {
-	  console.log('new list data is', data);
 	  return $.ajax({
 	    url: app.host + '/lists',
 	    method: 'POST',
