@@ -607,7 +607,6 @@ webpackJsonp([0],[
 	// edit a list title
 
 	var updateListTitle = function updateListTitle(data) {
-	  console.log('update ajax data', data);
 	  return $.ajax({
 	    url: app.host + '/lists/' + app.editListId,
 	    // $('#listIdUpdateTitle').data('id'),
