@@ -139,11 +139,11 @@ li {
 }
 
 form {
-  background-color: $form-background;
+  //background-color: $form-background;
   color: $form-color;
   display: inline-block;
 //  margin: 0 auto;
-  padding: 50px;
+  padding: 30px;
   position: relative;
   z-index: 100;
 }
@@ -179,16 +179,6 @@ ul {
   padding-right: 5%;
 //  top: 0;
 }
-
-// .delete-list {
-// //  padding: 12px 16px;
-// //  position: absolute;
-//   border: 2px solid;
-//   padding-right: 3%;
-// //  top: 0;
-// }
-
-
 
 
 

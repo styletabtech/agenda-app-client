@@ -20,7 +20,7 @@ const getMyLists = function () {
 const getAList = function (event) {
   event.preventDefault();
   let singleListId = $(event.target).parent().data('id');
-  console.log('singlelistid is', singleListId);
+  //console.log('singlelistid is', singleListId);
   app.singleListId = singleListId;
     api.getOneList(singleListId)
       .done(ui.singleListSuccess)
@@ -69,7 +69,7 @@ const onNewList = function (event) {
 const clickEditOnList = function (event) {
   event.preventDefault();
   let updateListId = $(event.target).parent().data('id');
-  console.log('targeted list id is', updateListId);
+//  console.log('targeted list id is', updateListId);
   app.editListId = updateListId;
   // let value = $("#listIdUpdateTitle").val(updateListId);
   // console.log('value is', value);
@@ -83,7 +83,7 @@ const clickEditOnList = function (event) {
 const onUpdateListAllView = function (event) {
   event.preventDefault();
   let data = getFormFields(event.target);
-  console.log('updateList data', data);
+//  console.log('updateList data', data);
     api.updateListTitle(data)
       .done(ui.clearMyLists)
         .done(getMyLists)
@@ -106,7 +106,7 @@ const onUpdateListAllView = function (event) {
 const onDeleteList = function (event) {
   event.preventDefault();
   let listID = $(event.target).attr('id');
-  console.log('listID is', listID);
+//  console.log('listID is', listID);
   api.destroyList(listID)
     .done(ui.clearMyLists)
       .done(getMyLists)

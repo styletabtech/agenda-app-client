@@ -12,7 +12,7 @@ const proceedToItemForm = () => {
 
 const newItemSuccess = (data) => {
   let item = data;
-    console.log('item is', data);
+//    console.log('item is', data);
    $('#new-item-form').addClass('hide');
   $(".content").append(showNewItemTemplate(item));
 };

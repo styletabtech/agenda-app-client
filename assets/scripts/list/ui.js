@@ -10,7 +10,7 @@ const showNewListTemplate = require ('../templates/single-list-view.handlebars')
 const myListsSuccess = (data) => {
 //  console.log('list success data is', data);
   let lists = data;
-   console.log(lists);
+//   console.log(lists);
   $(".content").html(showAllListsTemplate(lists));
 };
 
@@ -19,7 +19,7 @@ const myListsSuccess = (data) => {
 const singleListSuccess = (data) => {
 //  console.log('list success data is', data);
   let list = data.list;
-   console.log('list is', list);
+//   console.log('list is', list);
   $(".content").html(showNewListTemplate(list));
 };
 
