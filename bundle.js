@@ -36,7 +36,7 @@ webpackJsonp([0],[
 	// require('./example');
 
 	var authEvents = __webpack_require__(3);
-	var listEvents = __webpack_require__(8);
+	var listEvents = __webpack_require__(32);
 	var itemEvents = __webpack_require__(34);
 
 	// On document ready
@@ -303,6 +303,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var app = __webpack_require__(6);
+	var listUi = __webpack_require__(8);
 
 	// for setup
 
@@ -358,6 +359,7 @@ webpackJsonp([0],[
 
 	var signOutSuccess = function signOutSuccess() {
 	  app.user = null;
+	  listUi.clearMyLists();
 	  $('.main-interface').addClass('hide');
 	  $('.homepage').removeClass('hide');
 	  $('.intro-wrapper').removeClass('hide');
@@ -391,268 +393,10 @@ webpackJsonp([0],[
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	var getFormFields = __webpack_require__(4);
-
-	var api = __webpack_require__(9);
-	var ui = __webpack_require__(10);
-	var app = __webpack_require__(6);
-
-	// for getting all lists
-
-	var getMyLists = function getMyLists() {
-	  event.preventDefault();
-	  api.getAllLists().done(ui.myListsSuccess).fail(ui.failure);
-	};
-
-	// for showing a single list
-
-	var getAList = function getAList(event) {
-	  event.preventDefault();
-	  var singleListId = $(event.target).parent().data('id');
-	  //console.log('singlelistid is', singleListId);
-	  app.singleListId = singleListId;
-	  api.getOneList(singleListId).done(ui.singleListSuccess).fail(ui.failure);
-	};
-
-	// for creating a new list
-
-	var getNewList = function getNewList(event) {
-	  //  console.log('getnewlist is running');
-	  event.preventDefault();
-	  ui.proceedToCreateList(event);
-	};
-
-	var onNewList = function onNewList(event) {
-	  event.preventDefault();
-	  var data = getFormFields(event.target);
-	  api.createNewList(data).done(ui.clearMyLists).done(getMyLists).fail(ui.failure);
-	};
-
-	// for creating a new list (in my list view)
-
-	// const onNewListAllView = function (event) {
-	//   event.preventDefault();
-	//   let data = getFormFields(event.target);
-	//     api.createNewList(data)
-	//       .done(ui.newListSuccess)
-	//       .done(ui.clearMyLists)
-	//         .done(getMyLists)
-	//       .fail(ui.failure);
-	// };
-
-	// for updating a list title
-
-	// const getUpdateList = function (event) {
-	// //  console.log('getupdatelist is running');
-	//   event.preventDefault();
-	//   ui.proceedToUpdateList(event);
-	// };
-
-	// for updating a list title in My Lists View
-
-	var clickEditOnList = function clickEditOnList(event) {
-	  event.preventDefault();
-	  var updateListId = $(event.target).parent().data('id');
-	  //  console.log('targeted list id is', updateListId);
-	  app.editListId = updateListId;
-	  // let value = $("#listIdUpdateTitle").val(updateListId);
-	  // console.log('value is', value);
-
-	  // let list_id = $(event.target).attr('id');
-	  // console.log('listID is', list_id);
-	  ui.proceedToUpdateList(updateListId);
-	};
-
-	var onUpdateListAllView = function onUpdateListAllView(event) {
-	  event.preventDefault();
-	  var data = getFormFields(event.target);
-	  //  console.log('updateList data', data);
-	  api.updateListTitle(data).done(ui.clearMyLists).done(getMyLists).fail(ui.failure);
-	};
-
-	// for updating a list title in New List view
-
-	// const onUpdateList = function (event) {
-	//   event.preventDefault();
-	//   let data = getFormFields(event.target);
-	//   console.log('updateList data', data);
-	//     api.updateListTitle(data)
-	//         .done(getAList(data))
-	//         .fail(ui.failure);
-	// };
-
-	// for deleting a given list
-
-	var onDeleteList = function onDeleteList(event) {
-	  event.preventDefault();
-	  var listID = $(event.target).attr('id');
-	  //  console.log('listID is', listID);
-	  api.destroyList(listID).done(ui.clearMyLists).done(getMyLists).fail(ui.failure);
-	};
-
-	// events
-
-	var addHandlers = function addHandlers() {
-
-	  // for getting all lists
-	  $('#my-lists-button').on('click', getMyLists);
-
-	  // for getting a single list
-	  $('#edit-content').on('click', '.view-single-list', getAList);
-
-	  //for creating a new list
-
-	  $('#new-list-button').on('click', function () {
-	    $('#newListModal').modal('show');
-	  });
-	  $('#new-list-form').on('submit', onNewList);
-
-	  $('#new-list-form').on('submit', function () {
-	    $('#newListModal').modal('hide');
-	  });
-
-	  // for editing a list title (My Lists list view)
-
-	  // $('#edit-content').on('click', '.edit-list-all-view', clickEditOnList);
-
-
-	  $('#edit-content').on('click', '.edit-list-all-view', function () {
-	    $('#editTitleModal').modal('show');
-	  });
-
-	  $('#edit-content').on('click', '.edit-list-all-view', clickEditOnList);
-
-	  $('#update-list-form').on('submit', onUpdateListAllView);
-
-	  $('#update-list-form').on('submit', function () {
-	    $('#editTitleModal').modal('hide');
-	  });
-
-	  // deleting a list
-	  $('#edit-content').on('click', '.delete-list', onDeleteList);
-	};
-
-	// for editing a list title (single list view)
-
-	//  $('#edit-content').on('click', '.edit-list', getUpdateList);
-	// $('#update-list-form').on('submit', onUpdateList);
-
-	//  $('#edit-content').on('click', '.edit-list-all-view', getUpdateList);
-	// $('#update-list-form').on('submit', onUpdateListAllView);
-
-	module.exports = {
-	  addHandlers: addHandlers,
-	  getMyLists: getMyLists,
-	  getAList: getAList,
-	  getNewList: getNewList,
-	  onNewList: onNewList,
-	  clickEditOnList: clickEditOnList,
-	  // onUpdateList,
-	  onUpdateListAllView: onUpdateListAllView,
-	  onDeleteList: onDeleteList
-
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-
-	var app = __webpack_require__(6);
-
-	// get all lists
-
-	var getAllLists = function getAllLists() {
-	  return $.ajax({
-	    url: app.host + '/lists',
-	    method: "GET",
-	    headers: {
-	      Authorization: 'Token token=' + app.user.token
-	    } });
-	};
-
-	// show a list
-
-	var getOneList = function getOneList() {
-	  // console.log('one list data is', data);
-	  return $.ajax({
-	    url: app.host + '/lists/' + app.singleListId,
-	    // $('.list-name-wrapper').data('id'),
-	    method: 'GET',
-	    headers: {
-	      Authorization: 'Token token=' + app.user.token
-	    }
-	  });
-	};
-
-	// create new list
-
-	var createNewList = function createNewList(data) {
-	  return $.ajax({
-	    url: app.host + '/lists',
-	    method: 'POST',
-	    headers: {
-	      Authorization: 'Token token=' + app.user.token
-	    },
-	    data: {
-	      list: {
-	        'title': data.list.title
-	      }
-	    }
-	  });
-	};
-
-	// edit a list title
-
-	var updateListTitle = function updateListTitle(data) {
-	  return $.ajax({
-	    url: app.host + '/lists/' + app.editListId,
-	    // $('#listIdUpdateTitle').data('id'),
-	    method: 'PATCH',
-	    headers: {
-	      Authorization: 'Token token=' + app.user.token
-	    },
-	    data: {
-	      list: {
-	        'title': data.list.title
-	      }
-	    }
-	  });
-	};
-
-	// delete a list
-
-	var destroyList = function destroyList(listID) {
-	  return $.ajax({
-	    url: app.host + '/lists/' + listID,
-	    method: 'DELETE',
-	    headers: {
-	      Authorization: 'Token token=' + app.user.token
-	    }
-	  });
-	};
-
-	module.exports = {
-	  getAllLists: getAllLists,
-	  getOneList: getOneList,
-	  createNewList: createNewList,
-	  updateListTitle: updateListTitle,
-	  destroyList: destroyList
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
-
 	// const app = require('../app');
 
-	var showAllListsTemplate = __webpack_require__(11);
-	var showNewListTemplate = __webpack_require__(32);
+	var showAllListsTemplate = __webpack_require__(9);
+	var showNewListTemplate = __webpack_require__(30);
 
 	// for getting all lists
 
@@ -717,10 +461,10 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 11 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(12);
+	var Handlebars = __webpack_require__(10);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
 	    var stack1;
@@ -728,7 +472,7 @@ webpackJsonp([0],[
 	  return "\n<div class=\"list-name-wrapper\" data-id="
 	    + container.escapeExpression(container.lambda((depth0 != null ? depth0.id : depth0), depth0))
 	    + ">\n"
-	    + ((stack1 = container.invokePartial(__webpack_require__(31),depth0,{"name":"all-lists","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+	    + ((stack1 = container.invokePartial(__webpack_require__(29),depth0,{"name":"all-lists","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
 	    + "</div>\n";
 	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
@@ -742,16 +486,16 @@ webpackJsonp([0],[
 	},"usePartial":true,"useData":true});
 
 /***/ },
-/* 12 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Create a simple path alias to allow browserify to resolve
 	// the runtime on a supported path.
-	module.exports = __webpack_require__(13)['default'];
+	module.exports = __webpack_require__(11)['default'];
 
 
 /***/ },
-/* 13 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -765,30 +509,30 @@ webpackJsonp([0],[
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	var _handlebarsBase = __webpack_require__(14);
+	var _handlebarsBase = __webpack_require__(12);
 
 	var base = _interopRequireWildcard(_handlebarsBase);
 
 	// Each of these augment the Handlebars object. No need to setup here.
 	// (This is done to easily share code between commonjs and browse envs)
 
-	var _handlebarsSafeString = __webpack_require__(28);
+	var _handlebarsSafeString = __webpack_require__(26);
 
 	var _handlebarsSafeString2 = _interopRequireDefault(_handlebarsSafeString);
 
-	var _handlebarsException = __webpack_require__(16);
+	var _handlebarsException = __webpack_require__(14);
 
 	var _handlebarsException2 = _interopRequireDefault(_handlebarsException);
 
-	var _handlebarsUtils = __webpack_require__(15);
+	var _handlebarsUtils = __webpack_require__(13);
 
 	var Utils = _interopRequireWildcard(_handlebarsUtils);
 
-	var _handlebarsRuntime = __webpack_require__(29);
+	var _handlebarsRuntime = __webpack_require__(27);
 
 	var runtime = _interopRequireWildcard(_handlebarsRuntime);
 
-	var _handlebarsNoConflict = __webpack_require__(30);
+	var _handlebarsNoConflict = __webpack_require__(28);
 
 	var _handlebarsNoConflict2 = _interopRequireDefault(_handlebarsNoConflict);
 
@@ -823,7 +567,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 14 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -834,17 +578,17 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utils = __webpack_require__(15);
+	var _utils = __webpack_require__(13);
 
-	var _exception = __webpack_require__(16);
+	var _exception = __webpack_require__(14);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
-	var _helpers = __webpack_require__(17);
+	var _helpers = __webpack_require__(15);
 
-	var _decorators = __webpack_require__(25);
+	var _decorators = __webpack_require__(23);
 
-	var _logger = __webpack_require__(27);
+	var _logger = __webpack_require__(25);
 
 	var _logger2 = _interopRequireDefault(_logger);
 
@@ -933,7 +677,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 15 */
+/* 13 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1063,7 +807,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 16 */
+/* 14 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1109,7 +853,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 17 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1120,31 +864,31 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _helpersBlockHelperMissing = __webpack_require__(18);
+	var _helpersBlockHelperMissing = __webpack_require__(16);
 
 	var _helpersBlockHelperMissing2 = _interopRequireDefault(_helpersBlockHelperMissing);
 
-	var _helpersEach = __webpack_require__(19);
+	var _helpersEach = __webpack_require__(17);
 
 	var _helpersEach2 = _interopRequireDefault(_helpersEach);
 
-	var _helpersHelperMissing = __webpack_require__(20);
+	var _helpersHelperMissing = __webpack_require__(18);
 
 	var _helpersHelperMissing2 = _interopRequireDefault(_helpersHelperMissing);
 
-	var _helpersIf = __webpack_require__(21);
+	var _helpersIf = __webpack_require__(19);
 
 	var _helpersIf2 = _interopRequireDefault(_helpersIf);
 
-	var _helpersLog = __webpack_require__(22);
+	var _helpersLog = __webpack_require__(20);
 
 	var _helpersLog2 = _interopRequireDefault(_helpersLog);
 
-	var _helpersLookup = __webpack_require__(23);
+	var _helpersLookup = __webpack_require__(21);
 
 	var _helpersLookup2 = _interopRequireDefault(_helpersLookup);
 
-	var _helpersWith = __webpack_require__(24);
+	var _helpersWith = __webpack_require__(22);
 
 	var _helpersWith2 = _interopRequireDefault(_helpersWith);
 
@@ -1161,14 +905,14 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 18 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(15);
+	var _utils = __webpack_require__(13);
 
 	exports['default'] = function (instance) {
 	  instance.registerHelper('blockHelperMissing', function (context, options) {
@@ -1206,7 +950,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 19 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1216,9 +960,9 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utils = __webpack_require__(15);
+	var _utils = __webpack_require__(13);
 
-	var _exception = __webpack_require__(16);
+	var _exception = __webpack_require__(14);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
@@ -1306,7 +1050,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 20 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1316,7 +1060,7 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _exception = __webpack_require__(16);
+	var _exception = __webpack_require__(14);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
@@ -1337,14 +1081,14 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 21 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(15);
+	var _utils = __webpack_require__(13);
 
 	exports['default'] = function (instance) {
 	  instance.registerHelper('if', function (conditional, options) {
@@ -1372,7 +1116,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 22 */
+/* 20 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1404,7 +1148,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 23 */
+/* 21 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1422,14 +1166,14 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 24 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(15);
+	var _utils = __webpack_require__(13);
 
 	exports['default'] = function (instance) {
 	  instance.registerHelper('with', function (context, options) {
@@ -1461,7 +1205,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 25 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1472,7 +1216,7 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _decoratorsInline = __webpack_require__(26);
+	var _decoratorsInline = __webpack_require__(24);
 
 	var _decoratorsInline2 = _interopRequireDefault(_decoratorsInline);
 
@@ -1483,14 +1227,14 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 26 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(15);
+	var _utils = __webpack_require__(13);
 
 	exports['default'] = function (instance) {
 	  instance.registerDecorator('inline', function (fn, props, container, options) {
@@ -1518,14 +1262,14 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 27 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _utils = __webpack_require__(15);
+	var _utils = __webpack_require__(13);
 
 	var logger = {
 	  methodMap: ['debug', 'info', 'warn', 'error'],
@@ -1571,7 +1315,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 28 */
+/* 26 */
 /***/ function(module, exports) {
 
 	// Build out our basic SafeString type
@@ -1592,7 +1336,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 29 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1612,15 +1356,15 @@ webpackJsonp([0],[
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
-	var _utils = __webpack_require__(15);
+	var _utils = __webpack_require__(13);
 
 	var Utils = _interopRequireWildcard(_utils);
 
-	var _exception = __webpack_require__(16);
+	var _exception = __webpack_require__(14);
 
 	var _exception2 = _interopRequireDefault(_exception);
 
-	var _base = __webpack_require__(14);
+	var _base = __webpack_require__(12);
 
 	function checkRevision(compilerInfo) {
 	  var compilerRevision = compilerInfo && compilerInfo[0] || 1,
@@ -1890,7 +1634,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 30 */
+/* 28 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/* global window */
@@ -1917,10 +1661,10 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 31 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(12);
+	var Handlebars = __webpack_require__(10);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -1939,10 +1683,10 @@ webpackJsonp([0],[
 	},"useData":true});
 
 /***/ },
-/* 32 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(12);
+	var Handlebars = __webpack_require__(10);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
@@ -1952,15 +1696,15 @@ webpackJsonp([0],[
 	    + "\n  <div class=\"list-name-wrapper\" data-id="
 	    + alias2(alias1((depth0 != null ? depth0.id : depth0), depth0))
 	    + ">\n"
-	    + ((stack1 = container.invokePartial(__webpack_require__(33),depth0,{"name":"lists-partial","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+	    + ((stack1 = container.invokePartial(__webpack_require__(31),depth0,{"name":"lists-partial","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
 	    + "  </div>\n</h1>\n";
 	},"usePartial":true,"useData":true});
 
 /***/ },
-/* 33 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(12);
+	var Handlebars = __webpack_require__(10);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -1975,6 +1719,264 @@ webpackJsonp([0],[
 	},"useData":true});
 
 /***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	var getFormFields = __webpack_require__(4);
+
+	var api = __webpack_require__(33);
+	var ui = __webpack_require__(8);
+	var app = __webpack_require__(6);
+
+	// for getting all lists
+
+	var getMyLists = function getMyLists() {
+	  event.preventDefault();
+	  api.getAllLists().done(ui.myListsSuccess).fail(ui.failure);
+	};
+
+	// for showing a single list
+
+	var getAList = function getAList(event) {
+	  event.preventDefault();
+	  var singleListId = $(event.target).parent().data('id');
+	  //console.log('singlelistid is', singleListId);
+	  app.singleListId = singleListId;
+	  api.getOneList(singleListId).done(ui.singleListSuccess).fail(ui.failure);
+	};
+
+	// for creating a new list
+
+	var getNewList = function getNewList(event) {
+	  //  console.log('getnewlist is running');
+	  event.preventDefault();
+	  ui.proceedToCreateList(event);
+	};
+
+	var onNewList = function onNewList(event) {
+	  event.preventDefault();
+	  var data = getFormFields(event.target);
+	  api.createNewList(data).done(ui.clearMyLists).done(getMyLists).fail(ui.failure);
+	};
+
+	// for creating a new list (in my list view)
+
+	// const onNewListAllView = function (event) {
+	//   event.preventDefault();
+	//   let data = getFormFields(event.target);
+	//     api.createNewList(data)
+	//       .done(ui.newListSuccess)
+	//       .done(ui.clearMyLists)
+	//         .done(getMyLists)
+	//       .fail(ui.failure);
+	// };
+
+	// for updating a list title
+
+	// const getUpdateList = function (event) {
+	// //  console.log('getupdatelist is running');
+	//   event.preventDefault();
+	//   ui.proceedToUpdateList(event);
+	// };
+
+	// for updating a list title in My Lists View
+
+	var clickEditOnList = function clickEditOnList(event) {
+	  event.preventDefault();
+	  var updateListId = $(event.target).parent().data('id');
+	  //  console.log('targeted list id is', updateListId);
+	  app.editListId = updateListId;
+	  // let value = $("#listIdUpdateTitle").val(updateListId);
+	  // console.log('value is', value);
+
+	  // let list_id = $(event.target).attr('id');
+	  // console.log('listID is', list_id);
+	  ui.proceedToUpdateList(updateListId);
+	};
+
+	var onUpdateListAllView = function onUpdateListAllView(event) {
+	  event.preventDefault();
+	  var data = getFormFields(event.target);
+	  //  console.log('updateList data', data);
+	  api.updateListTitle(data).done(ui.clearMyLists).done(getMyLists).fail(ui.failure);
+	};
+
+	// for updating a list title in New List view
+
+	// const onUpdateList = function (event) {
+	//   event.preventDefault();
+	//   let data = getFormFields(event.target);
+	//   console.log('updateList data', data);
+	//     api.updateListTitle(data)
+	//         .done(getAList(data))
+	//         .fail(ui.failure);
+	// };
+
+	// for deleting a given list
+
+	var onDeleteList = function onDeleteList(event) {
+	  event.preventDefault();
+	  var listID = $(event.target).attr('id');
+	  //  console.log('listID is', listID);
+	  api.destroyList(listID).done(ui.clearMyLists).done(getMyLists).fail(ui.failure);
+	};
+
+	// events
+
+	var addHandlers = function addHandlers() {
+
+	  // for getting all lists
+	  $('#my-lists-button').on('click', getMyLists);
+
+	  // for getting a single list
+	  $('#edit-content').on('click', '.view-single-list', getAList);
+
+	  //for creating a new list
+
+	  $('#new-list-button').on('click', function () {
+	    $('#newListModal').modal('show');
+	  });
+	  $('#new-list-form').on('submit', onNewList);
+
+	  $('#new-list-form').on('submit', function () {
+	    $('#newListModal').modal('hide');
+	  });
+
+	  // for editing a list title (My Lists list view)
+
+	  // $('#edit-content').on('click', '.edit-list-all-view', clickEditOnList);
+
+
+	  $('#edit-content').on('click', '.edit-list-all-view', function () {
+	    $('#editTitleModal').modal('show');
+	  });
+
+	  $('#edit-content').on('click', '.edit-list-all-view', clickEditOnList);
+
+	  $('#update-list-form').on('submit', onUpdateListAllView);
+
+	  $('#update-list-form').on('submit', function () {
+	    $('#editTitleModal').modal('hide');
+	  });
+
+	  // deleting a list
+	  $('#edit-content').on('click', '.delete-list', onDeleteList);
+	};
+
+	// for editing a list title (single list view)
+
+	//  $('#edit-content').on('click', '.edit-list', getUpdateList);
+	// $('#update-list-form').on('submit', onUpdateList);
+
+	//  $('#edit-content').on('click', '.edit-list-all-view', getUpdateList);
+	// $('#update-list-form').on('submit', onUpdateListAllView);
+
+	module.exports = {
+	  addHandlers: addHandlers,
+	  getMyLists: getMyLists,
+	  getAList: getAList,
+	  getNewList: getNewList,
+	  onNewList: onNewList,
+	  clickEditOnList: clickEditOnList,
+	  // onUpdateList,
+	  onUpdateListAllView: onUpdateListAllView,
+	  onDeleteList: onDeleteList
+
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	var app = __webpack_require__(6);
+
+	// get all lists
+
+	var getAllLists = function getAllLists() {
+	  return $.ajax({
+	    url: app.host + '/lists',
+	    method: "GET",
+	    headers: {
+	      Authorization: 'Token token=' + app.user.token
+	    } });
+	};
+
+	// show a list
+
+	var getOneList = function getOneList() {
+	  // console.log('one list data is', data);
+	  return $.ajax({
+	    url: app.host + '/lists/' + app.singleListId,
+	    // $('.list-name-wrapper').data('id'),
+	    method: 'GET',
+	    headers: {
+	      Authorization: 'Token token=' + app.user.token
+	    }
+	  });
+	};
+
+	// create new list
+
+	var createNewList = function createNewList(data) {
+	  return $.ajax({
+	    url: app.host + '/lists',
+	    method: 'POST',
+	    headers: {
+	      Authorization: 'Token token=' + app.user.token
+	    },
+	    data: {
+	      list: {
+	        'title': data.list.title
+	      }
+	    }
+	  });
+	};
+
+	// edit a list title
+
+	var updateListTitle = function updateListTitle(data) {
+	  return $.ajax({
+	    url: app.host + '/lists/' + app.editListId,
+	    // $('#listIdUpdateTitle').data('id'),
+	    method: 'PATCH',
+	    headers: {
+	      Authorization: 'Token token=' + app.user.token
+	    },
+	    data: {
+	      list: {
+	        'title': data.list.title
+	      }
+	    }
+	  });
+	};
+
+	// delete a list
+
+	var destroyList = function destroyList(listID) {
+	  return $.ajax({
+	    url: app.host + '/lists/' + listID,
+	    method: 'DELETE',
+	    headers: {
+	      Authorization: 'Token token=' + app.user.token
+	    }
+	  });
+	};
+
+	module.exports = {
+	  getAllLists: getAllLists,
+	  getOneList: getOneList,
+	  createNewList: createNewList,
+	  updateListTitle: updateListTitle,
+	  destroyList: destroyList
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
 /* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1983,7 +1985,7 @@ webpackJsonp([0],[
 	var getFormFields = __webpack_require__(4);
 
 	var api = __webpack_require__(35);
-	var listApi = __webpack_require__(9);
+	var listApi = __webpack_require__(33);
 	var ui = __webpack_require__(36);
 	// const listUi = require('../list/ui');
 	// const listEvents = require('../list/events');
@@ -2161,7 +2163,7 @@ webpackJsonp([0],[
 /* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Handlebars = __webpack_require__(12);
+	var Handlebars = __webpack_require__(10);
 	function __default(obj) { return obj && (obj.__esModule ? obj["default"] : obj); }
 	module.exports = (Handlebars["default"] || Handlebars).template({"1":function(container,depth0,helpers,partials,data) {
 	    var stack1, alias1=container.lambda, alias2=container.escapeExpression;
