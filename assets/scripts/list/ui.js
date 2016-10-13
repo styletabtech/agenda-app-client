@@ -3,7 +3,7 @@
 // const app = require('../app');
 
 const showAllListsTemplate = require('../templates/get-all-lists.handlebars');
-const showNewListTemplate = require ('../templates/get-new-list.handlebars');
+const showNewListTemplate = require ('../templates/single-list-view.handlebars');
 
 // for getting all lists
 

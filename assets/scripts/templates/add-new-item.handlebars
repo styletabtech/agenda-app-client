@@ -1,10 +1,18 @@
 <div class="item-wrapper" data-id={{id}}>
+  <table>
+    <thead>
+      <th>DATE</th>
+      <th>TASK</th>
+      <th>PRIORITY</th>
+      <th>DUE</th>
+    </thead>
+  </table>
   <ul>
 {{#each items}}
-    <li>{{due_date}}</li>
-    <li> {{name}}</li>
-    <li> {{priority}}</li>
-    <li> {{due_time}}</li>
+    <li>{{item.due_date}}</li>
+    <li> {{item.name}}</li>
+    <li> {{item.priority}}</li>
+    <li> {{item.due_time}}</li>
 {{/each}}
     <!-- <li><button id={{id}} class="btn edit-item">EDIT</button></li>
     <li><button id={{id}} class="btn delete-item">DELETE</button></li> -->

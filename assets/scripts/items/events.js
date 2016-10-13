@@ -62,6 +62,7 @@ const addHandlers = () => {
  });
 
   $('#edit-content').on('click', '.add-item', getNewItemForm);
+
    $('#new-item-form').on('submit', onAddItem);
 
    $('#new-item-form').on('submit', function(){
