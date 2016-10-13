@@ -57,10 +57,11 @@ const failMessage = () => {
 // sign out
 
 const signOutSuccess = () => {
-
   app.user = null;
   $('.main-interface').addClass('hide');
+  $('.homepage').removeClass('hide');
   $('.intro-wrapper').removeClass('hide');
+
 };
 
 // for all fails

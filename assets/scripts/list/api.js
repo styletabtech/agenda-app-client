@@ -32,7 +32,6 @@ return $.ajax ({
 // create new list
 
 const createNewList = (data) => {
- console.log('new list data is', data);
   return $.ajax({
     url: app.host + '/lists',
     method: 'POST',
