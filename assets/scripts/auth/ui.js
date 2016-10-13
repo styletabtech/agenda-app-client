@@ -1,6 +1,7 @@
 'use strict';
 
 const app = require('../app');
+const listUi = require('../list/ui');
 
 // for setup
 
@@ -58,6 +59,7 @@ const failMessage = () => {
 
 const signOutSuccess = () => {
   app.user = null;
+  listUi.clearMyLists();
   $('.main-interface').addClass('hide');
   $('.homepage').removeClass('hide');
   $('.intro-wrapper').removeClass('hide');
